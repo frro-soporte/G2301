@@ -1,0 +1,46 @@
+<AlumnoCRUD>:
+    orientation: 'vertical'
+
+    Label:
+        text: 'CRUD de Alumnos'
+        size_hint: 1, 0.1
+
+    TextInput:
+        id: nombre_input
+        hint_text: 'Nombre'
+        size_hint: 1, 0.1
+
+    TextInput:
+        id: edad_input
+        hint_text: 'Edad'
+        size_hint: 1, 0.1
+
+    TextInput:
+        id: email_input
+        hint_text: 'Email'
+        size_hint: 1, 0.1
+
+    Button:
+        text: 'Agregar'
+        size_hint: 1, 0.1
+        on_press: root.agregar_alumno()
+
+    Button:
+        text: 'Actualizar'
+        size_hint: 1, 0.1
+        on_press: root.actualizar_alumno()
+
+    Button:
+        text: 'Eliminar'
+        size_hint: 1, 0.1
+        on_press: root.eliminar_alumno()
+
+    Label:
+        text: 'Lista de Alumnos'
+        size_hint: 1, 0.1
+
+    TextInput:
+        id: lista_alumnos
+        multiline: True
+        readonly: True
+        size_hint: 1, 0.4
