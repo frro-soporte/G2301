@@ -41,28 +41,95 @@ class TestsNegocio(unittest.TestCase):
         self.assertRaises(LongitudInvalida, self.ns.regla_2, invalido)
 
     def test_regla_2_nombre_mayor_15(self):
-        pass
+        invalido = Socio(dni=12345678, nombre='Juan' * 5, apellido='Perez')
+        self.assertRaises(LongitudInvalida, self.ns.regla_2, invalido)
 
     def test_regla_2_apellido_menor_3(self):
-        pass
+        valido = Socio(dni=12345678, nombre='Juan', apellido='Perez')
+        self.assertTrue(self.ns.regla_2(valido))
+        invalido = Socio(dni=12345678, nombre='Juan', apellido='P')
+        self.assertRaises(LongitudInvalida, self.ns.regla_2, invalido)
 
     def test_regla_2_apellido_mayor_15(self):
-        pass
+        invalido = Socio(dni=12345678, nombre='Juan', apellido='Perez' * 5)
+        self.assertRaises(LongitudInvalida, self.ns.regla_2, invalido)
 
     def test_regla_3(self):
         pass
 
     def test_baja(self):
-        pass
+        # pre-condiciones: existe un socio registrado
+        socio = Socio(dni=12345678, nombre='Juan', apellido='Perez')
+        self.ns.alta(socio)
+        self.assertEqual(len(self.ns.todos()), 1)
+
+        # ejecuto la lógica
+        exito = self.ns.baja(socio.id)
+
+        # post-condiciones: el socio ha sido eliminado
+        self.assertTrue(exito)
+        self.assertEqual(len(self.ns.todos()), 0)
 
     def test_buscar(self):
-        pass
+        # pre-condiciones: existe un socio registrado
+        socio = Socio(dni=12345678, nombre='Juan', apellido='Perez')
+        self.ns.alta(socio)
+
+        # ejecuto la lógica
+        socio_encontrado = self.ns.buscar(socio.id)
+
+        # post-condiciones: el socio ha sido encontrado
+        self.assertIsNotNone(socio_encontrado)
+        self.assertEqual(socio_encontrado, socio)
 
     def test_buscar_dni(self):
-        pass
+        # pre-condiciones: existe un socio registrado
+        socio = Socio(dni=12345678, nombre='Juan', apellido='Perez')
+        self.ns.alta(socio)
+
+        # ejecuto la lógica
+        socio_encontrado = self.ns.buscar_dni(socio.dni)
+
+        # post-condiciones: el socio ha sido encontrado
+        self.assertIsNotNone(socio_encontrado)
+        self.assertEqual(socio_encontrado, socio)
 
     def test_todos(self):
-        pass
+        # pre-condiciones: no hay socios registrados
+        self.assertEqual(len(self.ns.todos()), 0)
+
+        # agrego algunos socios
+        socios = [
+            Socio(dni=12345678, nombre='Juan', apellido='Perez'),
+            Socio(dni=98765432, nombre='Carlos', apellido='Gomez'),
+            Socio(dni=45678912, nombre='Laura', apellido='Lopez')
+        ]
+        for socio in socios:
+            self.ns.alta(socio)
+
+        # ejecuto la lógica
+        socios_encontrados = self.ns.todos()
+
+        # post-condiciones: se han encontrado todos los socios
+        self.assertEqual(len(socios_encontrados), len(socios))
+        self.assertCountEqual(socios_encontrados, socios)
 
     def test_modificacion(self):
-        pass
+        # pre-condiciones: existe un socio registrado
+        socio = Socio(dni=12345678, nombre='Juan', apellido='Perez')
+        self.ns.alta(socio)
+
+        # modifico los datos del socio
+        socio.nombre = 'Carlos'
+        socio.apellido = 'Gomez'
+        socio.dni = 98765432
+
+        # ejecuto la lógica
+        socio_modificado = self.ns.modificacion(socio)
+
+        # post-condiciones: el socio ha sido modificado
+        self.assertIsNotNone(socio_modificado)
+        self.assertEqual(socio_modificado.id, socio.id)
+        self.assertEqual(socio_modificado.nombre, 'Carlos')
+        self.assertEqual(socio_modificado.apellido, 'Gomez')
+        self.assertEqual(socio_modificado.dni, 98765432)
