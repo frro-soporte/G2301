@@ -10,7 +10,21 @@ def borrar_persona(id_persona):
     """Implementar la funcion borrar_persona, que elimina un registro en la 
     tabla Persona. Devuelve un booleano en base a si encontro el registro y lo 
     borro o no."""
-    pass # Completar
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+
+    comando_sql = '''DELETE FROM persona WHERE IdPersona = ?'''
+
+    cursor.execute(comando_sql, (id_persona,))
+
+    if cursor.rowcount > 0:
+        conexion.commit()
+        conexion.close()
+        return True
+    else:
+        conexion.rollback()
+        conexion.close()
+        return False
 
 # NO MODIFICAR - INICIO
 @reset_tabla

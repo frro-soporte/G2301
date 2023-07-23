@@ -11,7 +11,16 @@ def buscar_persona(id_persona):
     persona basado en su id. El return es una tupla que contiene sus campos: 
     id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
     devuelve False."""
-    pass # Completar
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+    consulta_sql = ''' SELECT IdPersona, Nombre, FechaNacimiento, DNI, Altura FROM persona WHERE IdPersona = ?'''
+    cursor.execute(consulta_sql, (id_persona,))
+    resultado = cursor.fetchone()
+    conexion.close()
+    if resultado:
+        return resultado
+    else:
+        return False
 
 
 # NO MODIFICAR - INICIO

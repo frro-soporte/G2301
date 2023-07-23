@@ -19,8 +19,25 @@ def agregar_peso(id_persona, fecha, peso):
     Debe devolver:
     - ID del peso registrado.
     - False en caso de no cumplir con alguna validacion."""
-
-    pass # Completar
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+    persona = buscar_persona(id_persona)
+    if not persona:
+        conexion.close()
+        return False
+    consulta_sql = '''SELECT Fecha FROM PersonaPeso WHERE IdPersona = ? AND Fecha > ?'''
+    cursor.execute(consulta_sql, (id_persona, fecha))
+    registros = cursor.fetchall()
+    if registros:
+        conexion.close()
+        return False
+    comando_sql = '''INSERT INTO PersonaPeso (IdPersona, Fecha, Peso) VALUES (?, ?, ?)'''
+    values = (id_persona, fecha, peso)
+    cursor.execute(comando_sql, values)
+    conexion.commit()
+    id_peso = cursor.lastrowid
+    conexion.close()
+    return id_peso
 
 
 # NO MODIFICAR - INICIO

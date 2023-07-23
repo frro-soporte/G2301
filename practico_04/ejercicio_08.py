@@ -30,7 +30,19 @@ def listar_pesos(id_persona):
 
     - False en caso de no cumplir con alguna validacion.
     """
-    return []
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+    persona = buscar_persona(id_persona)
+    if not persona:
+        conexion.close()
+        return False
+    consulta_sql = '''SELECT Fecha, Peso FROM PersonaPeso WHERE IdPersona = ?'''
+    cursor.execute(consulta_sql, (id_persona,))
+    resultado = cursor.fetchall()
+    conexion.close()
+    if resultado is None:
+        return False
+    return [(str(fecha), peso) for fecha, peso in resultado]
 
 
 # NO MODIFICAR - INICIO

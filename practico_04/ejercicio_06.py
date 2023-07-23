@@ -9,13 +9,33 @@ def crear_tabla_peso():
         - Fecha: Date()
         - Peso: Int()
     """
-    pass # Completar
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='PersonaPeso'")
+    tabla_existente = cursor.fetchone()
+    if tabla_existente is not None:
+        print("La tabla ya existe")
+    else:
+        consulta_sql = '''CREATE TABLE PersonaPeso (
+                IdPersona INTEGER,
+                Fecha TEXT,
+                Peso INTEGER,
+                FOREIGN KEY (IdPersona) REFERENCES persona(IdPersona)
+            )'''
+        cursor.execute(consulta_sql)
+        conexion.commit()
+        conexion.close()
 
 
 def borrar_tabla_peso():
     """Implementar la funcion borrar_tabla, que borra la tabla creada 
     anteriormente."""
-    pass # Completar
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+    comando_sql = '''DROP TABLE IF EXISTS PersonaPeso'''
+    cursor.execute(comando_sql)
+    conexion.commit()
+    conexion.close()
 
 
 # NO MODIFICAR - INICIO
