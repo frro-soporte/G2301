@@ -1,0 +1,2187 @@
+﻿<process name="CONT_RenombrarArchivosRetenciones" version="1.0" bpversion="7.1.1.65484" narrative="" byrefcollection="true" preferredid="2df5e1ab-eb77-496f-8a81-083cc1483795" published="true">
+  <view>
+    <camerax>-88</camerax>
+    <cameray>-234</cameray>
+    <zoom version="2">1.5625</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="25ef4879-6de2-49dc-803f-2d956e2aa6f6" type="Normal" published="False">
+    <name>ExtraerDatosMaestros</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>210</cameray>
+      <zoom version="2">2.1875</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="5661f383-4ae8-4a41-be03-c8e84004b84e" type="Normal" published="False">
+    <name>Delete pending items</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.875</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b749d60a-bded-4d36-b099-3627ed699606" type="Normal" published="False">
+    <name>Populate Queue</name>
+    <view>
+      <camerax>64</camerax>
+      <cameray>345</cameray>
+      <zoom version="2">1.5625</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="47e58161-0f42-47cc-aa94-af755a8de010" type="Normal" published="False">
+    <name>1_MoverArchivo</name>
+    <view>
+      <camerax>101</camerax>
+      <cameray>435</cameray>
+      <zoom version="2">1.5625</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6ba3a62d-e683-4fc9-80c2-95ace9ed6d67" type="Normal" published="False">
+    <name>1.1_ManipularDatos</name>
+    <view>
+      <camerax>183</camerax>
+      <cameray>615</cameray>
+      <zoom version="2">1.5625</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8a991efe-db4c-4978-bcee-6c7a99fd7101" type="Normal" published="False">
+    <name>Enviar Reporte</name>
+    <view>
+      <camerax>261</camerax>
+      <cameray>645</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="d31d1c11-61ad-4c49-91a4-44bbf0bf0725" type="Normal" published="False">
+    <name>Mark Item As Completed</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>23</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="d599353b-a78b-40f4-ab04-255791b86a1a" type="Normal" published="False">
+    <name>Mark Item As Exception</name>
+    <view>
+      <camerax>109</camerax>
+      <cameray>90</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="5fd952f0-1be2-40e8-8afa-485524c5a5cd" type="Normal" published="False">
+    <name>Reset Global Data</name>
+    <view>
+      <camerax>11</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="30a66a72-d51e-464f-89e3-f40b54998601" name="Start" type="Start">
+    <display x="15" y="-300" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>bf7a1c76-3a53-4764-a6c0-af553691fd61</onsuccess>
+  </stage>
+  <stage stageid="458762d9-7dd4-47c0-bbdc-55d193273d9c" name="End" type="End">
+    <display x="450" y="-90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8b6eaa66-766c-4d2a-a0d1-cc6ab7e4f32d" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-360" w="270" h="120" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="62aec640-1920-44e6-8b1e-be6a9725cec8" name="Mark Item As Completed" type="SubSheetInfo">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <narrative>Marks the current work queue item as complete</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="1446dc69-509c-446c-8f20-b7f580423da2" name="Mark Item As Exception" type="SubSheetInfo">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Marks the current work queue item as an exception</narrative>
+    <display x="-90" y="-210" w="150" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="bc2ffba4-5cb1-48b6-a390-3b1aadd5dab4" name="Start" type="Start">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="-120" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>808cbef2-cfe3-460f-ba72-91e0e6283988</onsuccess>
+  </stage>
+  <stage stageid="b49e249e-bbb1-427e-8bd1-902ce03e3a79" name="Recover" type="Recover">
+    <display x="195" y="375" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>6fa1db8d-0510-4c35-8416-9a938e94c78d</onsuccess>
+  </stage>
+  <stage stageid="53762061-333e-4023-b99f-1de349dfc4a4" name="Resume" type="Resume">
+    <display x="195" y="525" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>ffb4d158-5875-4239-bd22-b7ca87c93bbc</onsuccess>
+  </stage>
+  <stage stageid="b9fbad6e-b3b1-4e9b-bc71-1b96d40beeb2" name="Retry Exception?" type="Decision">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="30" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="Lower([txt_exceptionType])=&quot;system exception&quot; OR Lower([txt_exceptionType])=&quot;internal&quot;" />
+    <ontrue>6b5864ff-c8f2-4c69-8e1b-d090c057cdc2</ontrue>
+    <onfalse>5ce83707-f042-4e73-929c-e7358ebdc456</onfalse>
+  </stage>
+  <stage stageid="a374264f-2dbf-4477-bad7-ee4ba812e5b1" name="Previous Exception?" type="Decision">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="225" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[txt_previousExceptionDetail]=[txt_exceptionDetail]" />
+    <ontrue>3484ce27-f1ef-4f28-926b-efaa03fc5fed</ontrue>
+    <onfalse>7105b714-612a-4e50-84b3-f789f0634902</onfalse>
+  </stage>
+  <stage stageid="a08fa84e-da3f-447e-80f1-1db9c2935d76" name="txt_previousExceptionDetail" type="Data">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="-300" y="90" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+  </stage>
+  <stage stageid="3484ce27-f1ef-4f28-926b-efaa03fc5fed" name="Count" type="Calculation">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="300" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>02c69925-9f7c-41af-844f-259d82504b0a</onsuccess>
+    <calculation expression="1+ [num_consecutiveExceptionCount]" stage="num_consecutiveExceptionCount" />
+  </stage>
+  <stage stageid="02c69925-9f7c-41af-844f-259d82504b0a" name="Limit?" type="Decision">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="375" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[num_consecutiveExceptionCount]&gt;=[num_consecutiveExceptionLimit]" />
+    <ontrue>4dda9efd-3cd9-4714-b293-fe6aa9cd269c</ontrue>
+    <onfalse>7360eced-01c7-4dc8-a7ef-817d130f1cc5</onfalse>
+  </stage>
+  <stage stageid="aefca01e-0501-4f8e-ba6c-a5aa4896e4ea" name="TERMINATE" type="Exception">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="570" w="120" h="60" />
+    <font family="Tahoma" size="10" style="Bold" color="FF0000" />
+    <exception type="" detail="[num_consecutiveExceptionLimit] &amp; &quot; consecutive incidents of &quot; &amp; [txt_exceptionType] &amp; &quot;: &quot; &amp; [txt_exceptionDetail]" />
+  </stage>
+  <stage stageid="64a4e876-5092-4568-829b-73faed844a31" name="End2" type="End">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="285" y="375" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="9de6523c-e14d-4937-b854-1b0930857c02" name="Reset Consecutive Exception Indicators" type="MultipleCalculation">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="285" y="225" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>64a4e876-5092-4568-829b-73faed844a31</onsuccess>
+    <steps>
+      <calculation expression="[txt_exceptionDetail]" stage="txt_previousExceptionDetail" />
+      <calculation expression="0" stage="num_consecutiveExceptionCount" />
+    </steps>
+  </stage>
+  <stage stageid="4dda9efd-3cd9-4714-b293-fe6aa9cd269c" name="Stop the process because consecutive exceptions are occuring" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>El limite de reintento se excedio asi que tiramos una excepcion para terminar el proceso.
+The consecutive exception limit has been reached, so throw a new exception to terminate the process.</narrative>
+    <display x="15" y="480" w="120" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="0000FF" />
+    <onsuccess>aefca01e-0501-4f8e-ba6c-a5aa4896e4ea</onsuccess>
+  </stage>
+  <stage stageid="6047b42e-0003-4ddb-8ba3-d3607d6ce770" name="Start" type="Start">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <display x="15" y="-105" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>126538a7-7404-4369-8cdd-056490ecc46c</onsuccess>
+  </stage>
+  <stage stageid="86bb4f43-18d4-43dd-9bf5-b8902e21521c" name="Mark Completed" type="Action">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <narrative>Marks the item as completed, by updating the Completed timestamp and setting Locked to null. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.</narrative>
+    <display x="15" y="0" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to mark" expr="[txt_itemID]" />
+    </inputs>
+    <onsuccess>8f6d0bfa-2d98-469e-997c-88b0c126d4d7</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Mark Completed" />
+  </stage>
+  <stage stageid="126538a7-7404-4369-8cdd-056490ecc46c" name="Set Status" type="Action">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <narrative>Updates the status field for the item. The status field can be used to flag what has been done in a process so far. If a process encounters an exception, this information can be used to skip to the parts of the process not yet done for the item next time it is worked. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.
+
+This action will also reset the Attempts column to zero, because if the status updated the process should have successfully done something.</narrative>
+    <display x="15" y="-45" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to mark" expr="[txt_itemID]" />
+      <input type="text" name="Status" friendlyname="Status" narrative="The new status - 255 characters maximum." expr="&quot;Completed&quot;" />
+    </inputs>
+    <onsuccess>86bb4f43-18d4-43dd-9bf5-b8902e21521c</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Update Status" />
+  </stage>
+  <stage stageid="09fc131c-2803-4daf-b8cf-351f28b78783" name="txt_newItemID" type="Data">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="-285" y="30" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="10cdebf6-ced7-425b-91dd-2b0b764b5ee0" name="Got Item?" type="Decision">
+    <display x="195" y="75" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[txt_itemID]&lt;&gt;&quot;&quot;" />
+    <ontrue>731b1d6d-580d-4e96-9d99-20280f13ae57</ontrue>
+    <onfalse>251ffe34-2fdd-478f-9297-271061ef8923</onfalse>
+  </stage>
+  <stage stageid="c820952e-9e6d-4733-8604-b1360d80ecde" name="Work" type="Block">
+    <display x="135" y="270" w="120" h="210" />
+    <font family="Tahoma" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="1ef745eb-5713-4876-9937-47ac6d74b94b" name="anchor8" type="Anchor">
+    <display x="450" y="315" w="10" h="10" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>bef8f1ff-727a-4e0a-b29e-ed73fb6f0147</onsuccess>
+  </stage>
+  <stage stageid="6dace494-d4a8-4d6a-8169-cfd699f9f583" name="1_MoverArchivo" type="SubSheetInfo">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="-120" y="-15" w="150" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="731b1d6d-580d-4e96-9d99-20280f13ae57" name="1_MoverArchivo" type="SubSheet">
+    <display x="195" y="315" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>e3035b4a-aba4-4fa5-932e-cbaab6a81b7b</onsuccess>
+    <processid>47e58161-0f42-47cc-aa94-af755a8de010</processid>
+  </stage>
+  <stage stageid="4fc18802-6f3f-497d-84f9-d4647d4fe33a" name="Reset Global Data" type="SubSheetInfo">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <narrative>This page is only used to reset global data items</narrative>
+    <display x="-165" y="-120" w="150" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="077ec244-9c84-4210-b6a5-e54b1b6000f0" name="Start" type="Start">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <display x="15" y="-105" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>0dee5c1d-8e68-49ec-a0ae-94125067ae6a</onsuccess>
+  </stage>
+  <stage stageid="0dee5c1d-8e68-49ec-a0ae-94125067ae6a" name="End" type="End">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <display x="15" y="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="bef8f1ff-727a-4e0a-b29e-ed73fb6f0147" name="Reset Global Data" type="SubSheet">
+    <display x="450" y="225" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>0341efdc-206a-43f9-8369-583aa2642c07</onsuccess>
+    <processid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</processid>
+  </stage>
+  <stage stageid="ffb4d158-5875-4239-bd22-b7ca87c93bbc" name="Mark Item As Exception" type="SubSheet">
+    <display x="345" y="525" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>8f17792f-057d-4155-804d-35098307f65b</onsuccess>
+    <processid>d599353b-a78b-40f4-ab04-255791b86a1a</processid>
+  </stage>
+  <stage stageid="e3035b4a-aba4-4fa5-932e-cbaab6a81b7b" name="Mark Item As Completed" type="SubSheet">
+    <display x="345" y="315" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>1ef745eb-5713-4876-9937-47ac6d74b94b</onsuccess>
+    <processid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</processid>
+  </stage>
+  <stage stageid="8f6d0bfa-2d98-469e-997c-88b0c126d4d7" name="Reset Consecutive Exception Indicators" type="MultipleCalculation">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <display x="15" y="60" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>7f3bfe56-9180-4254-8d9c-ee9ab331b39a</onsuccess>
+    <steps>
+      <calculation expression="&quot;&quot;" stage="txt_previousExceptionDetail" />
+      <calculation expression="0" stage="num_consecutiveExceptionCount" />
+    </steps>
+  </stage>
+  <stage stageid="7f3bfe56-9180-4254-8d9c-ee9ab331b39a" name="End3" type="End">
+    <subsheetid>d31d1c11-61ad-4c49-91a4-44bbf0bf0725</subsheetid>
+    <display x="15" y="120" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="46407e01-19d6-439f-b64b-e6a18e1ae3db" name="Stop?" type="Decision">
+    <display x="450" y="75" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Bold" color="FF0000" />
+    <decision expression="IsStopRequested() OR [num_stopAfterItems]=0 OR LocalTime()&gt;[tim_stopAfterTime]" />
+    <ontrue>458762d9-7dd4-47c0-bbdc-55d193273d9c</ontrue>
+    <onfalse>b9deef81-8e13-43ef-b6e4-c7554776c97d</onfalse>
+  </stage>
+  <stage stageid="5ce83707-f042-4e73-929c-e7358ebdc456" name="Tag Item" type="Action">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Adds a tag to a work queue item</narrative>
+    <display x="105" y="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the queue item to add the tag to" expr="[txt_itemID]" />
+      <input type="text" name="Tag" friendlyname="Tag" narrative="The tag to add to the item. Note that this cannot start with a '+' (plus) or '-' (minus) character, and cannot contain ';' (semi-colon) characters" expr="&quot;Business Exception&quot;" />
+    </inputs>
+    <onsuccess>daa36ca6-f942-4ebc-86fc-8ba76b19cb4d</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Tag Item" />
+  </stage>
+  <stage stageid="0341efdc-206a-43f9-8369-583aa2642c07" name="Count Items" type="Calculation">
+    <display x="450" y="150" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>46407e01-19d6-439f-b64b-e6a18e1ae3db</onsuccess>
+    <calculation expression="[num_stopAfterItems]-1" stage="num_stopAfterItems" />
+  </stage>
+  <stage stageid="85fbb578-f410-4f72-8ca9-58513939bc51" name="Get Next Item" type="Action">
+    <narrative>This action gets the next item to be worked from the queue, returning its details and locking it so no other case can work it.
+
+Items with higher priorities (lower numerical value) are processed first. Where the priority is the same, the next item is the one that has been in the queue the longest,  is not already locked, and is not already completed.
+
+The Item ID returned is used to make further calls to update the work status for that item. It may be empty, in which case there are no items available. This can mean either a) the queue is empty, or b) the queue is not running. This mechanism can be used to cleanly stop all processes working a particular queue at the end of the next case. Items that have a 'deferred' time set will not be returned unless that time has been reached.</narrative>
+    <display x="15" y="75" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="The name of the queue" expr="[txt_queueName]" />
+      <input type="text" name="Key Filter" friendlyname="Key Filter" narrative="Optionally, a key value to filter by. Only items with this key value will be considered." expr="" />
+      <input type="text" name="Tag Filter" friendlyname="Tag Filter" narrative="Optionally, a tag mask to filter by. This can consist of any number of tag searches - each term can be separated by a semi-colon and they are all applied to the search (ie. they are AND'ed terms not OR'ed terms). For example, &quot;Account: Joint; -Balance: Overdrawn; Card: *Visa*&quot; will include any items which match all the terms, ie. every item must have an 'Account: Joint' tag applied, no item can have a 'Balance: Overdrawn' tag applied, every item must have a tag applied which starts with 'Card: ' and then contains the text 'Visa'." expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item retrieved - empty if there are none available." stage="txt_itemID" />
+      <output type="collection" name="Data" friendlyname="Data" narrative="The data associated with the item - a single collection row." stage="col_itemData" />
+      <output type="text" name="Status" friendlyname="Status" narrative="The status of the item." stage="txt_itemStatus" />
+      <output type="number" name="Attempts" friendlyname="Attempts" narrative="The number of attempts already made to work this item." stage="num_itemAttempts" />
+    </outputs>
+    <onsuccess>10cdebf6-ced7-425b-91dd-2b0b764b5ee0</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Get Next Item" />
+  </stage>
+  <stage stageid="e7450b45-6166-42c1-b727-c904883265b5" name="Reset Consecutive Exception Indicators" type="MultipleCalculation">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="450" y="30" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>f06041aa-ea81-4ef5-b916-b46c6a06f168</onsuccess>
+    <steps>
+      <calculation expression="&quot;&quot;" stage="txt_previousExceptionDetail" />
+      <calculation expression="0" stage="num_consecutiveExceptionCount" />
+    </steps>
+  </stage>
+  <stage stageid="b9deef81-8e13-43ef-b6e4-c7554776c97d" name="Get Next Item" type="Action">
+    <narrative>This action gets the next item to be worked from the queue, returning its details and locking it so no other case can work it.
+
+Items with higher priorities (lower numerical value) are processed first. Where the priority is the same, the next item is the one that has been in the queue the longest,  is not already locked, and is not already completed.
+
+The Item ID returned is used to make further calls to update the work status for that item. It may be empty, in which case there are no items available. This can mean either a) the queue is empty, or b) the queue is not running. This mechanism can be used to cleanly stop all processes working a particular queue at the end of the next case. Items that have a 'deferred' time set will not be returned unless that time has been reached.</narrative>
+    <display x="300" y="75" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="The name of the queue" expr="[txt_queueName]" />
+      <input type="text" name="Key Filter" friendlyname="Key Filter" narrative="Optionally, a key value to filter by. Only items with this key value will be considered." expr="" />
+      <input type="text" name="Tag Filter" friendlyname="Tag Filter" narrative="Optionally, a tag mask to filter by. This can consist of any number of tag searches - each term can be separated by a semi-colon and they are all applied to the search (ie. they are AND'ed terms not OR'ed terms). For example, &quot;Account: Joint; -Balance: Overdrawn; Card: *Visa*&quot; will include any items which match all the terms, ie. every item must have an 'Account: Joint' tag applied, no item can have a 'Balance: Overdrawn' tag applied, every item must have a tag applied which starts with 'Card: ' and then contains the text 'Visa'." expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item retrieved - empty if there are none available." stage="txt_itemID" />
+      <output type="collection" name="Data" friendlyname="Data" narrative="The data associated with the item - a single collection row." stage="col_itemData" />
+      <output type="text" name="Status" friendlyname="Status" narrative="The status of the item." stage="txt_itemStatus" />
+      <output type="number" name="Attempts" friendlyname="Attempts" narrative="The number of attempts already made to work this item." stage="num_itemAttempts" />
+    </outputs>
+    <onsuccess>10cdebf6-ced7-425b-91dd-2b0b764b5ee0</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Get Next Item" />
+  </stage>
+  <stage stageid="8f17792f-057d-4155-804d-35098307f65b" name="anchor14" type="Anchor">
+    <display x="450" y="525" w="10" h="10" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>1ef745eb-5713-4876-9937-47ac6d74b94b</onsuccess>
+  </stage>
+  <stage stageid="d64ced1f-6499-41a5-b006-5b03a3bd4ed0" name="tim_stopAfterTime" type="Data">
+    <narrative>Used by the process to decide whether to keep working or close itself down. This value can be modified from Control Room to bring a session to an early finish.</narrative>
+    <display x="-165" y="135" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Bold" color="FF0000" />
+    <datatype>time</datatype>
+    <initialvalue>17:25:00</initialvalue>
+    <exposure>Session</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="aff8912c-98ae-4bb9-84d5-a2eab0253c71" name="num_stopAfterItems" type="Data">
+    <narrative>Used by the process to decide whether to keep working or close itself down. This value can be modified from Control Room to bring a session to an early finish.</narrative>
+    <display x="-165" y="165" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Bold" color="FF0000" />
+    <datatype>number</datatype>
+    <initialvalue>9999999999</initialvalue>
+    <exposure>Session</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eb957176-69ca-436f-b5b8-a0af1c12f549" name="Stopping Control Settings" type="Block">
+    <display x="-255" y="90" w="180" h="105" />
+    <font family="Tahoma" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="d303b2cb-0441-445a-8463-956e2863a1d4" name="txt_queueName" type="Data">
+    <display x="-165" y="45" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Bold" color="0000FF" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">CONT_RenombrarArchivosRetenciones</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="f9d7ca2d-a983-471c-bc79-408b2230269a" name="Process Settings" type="Block">
+    <display x="-255" y="0" w="180" h="75" />
+    <font family="Tahoma" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="6fa1db8d-0510-4c35-8416-9a938e94c78d" name="Exception Data" type="MultipleCalculation">
+    <display x="195" y="435" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>53762061-333e-4023-b99f-1de349dfc4a4</onsuccess>
+    <steps>
+      <calculation expression="ExceptionType()" stage="txt_exceptionType" />
+      <calculation expression="ExceptionDetail()" stage="txt_exceptionDetail" />
+    </steps>
+  </stage>
+  <stage stageid="7105b714-612a-4e50-84b3-f789f0634902" name="Note5" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <loginhibit />
+    <narrative>
+La excepcion es distinta a la anterior</narrative>
+    <display x="150" y="225" w="120" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="0000FF" />
+    <onsuccess>9de6523c-e14d-4937-b854-1b0930857c02</onsuccess>
+  </stage>
+  <stage stageid="7360eced-01c7-4dc8-a7ef-817d130f1cc5" name="Note5" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <loginhibit />
+    <narrative>La excepcion es la misma a la anterior pero el limite de reintentos no fue excedido.
+This exception is the same as the previous one but the consecutive exception limit has not yet been reached.</narrative>
+    <display x="150" y="375" w="120" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="0000FF" />
+    <onsuccess>64a4e876-5092-4568-829b-73faed844a31</onsuccess>
+  </stage>
+  <stage stageid="daa36ca6-f942-4ebc-86fc-8ba76b19cb4d" name="Note5" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <loginhibit />
+    <narrative>Por default la logica del template reintenta todo lo que sea Business Exception una sola vez, caso contrario lo reintenta la cantidad de veces configurada en la queue del proceso (3 veces por default). 
+Don't retry this type of exception, just mark the queue item and carry on.</narrative>
+    <display x="225" y="30" w="120" h="120" />
+    <font family="Tahoma" size="10" style="Regular" color="0000FF" />
+    <onsuccess>a97071fe-23f0-44d4-a04a-1516826f8ace</onsuccess>
+  </stage>
+  <stage stageid="52e45164-64b2-41fd-b6da-09c88ec7cdf7" name="Mark Exception" type="Action">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Marks the item as an exception, optionally retrying it by cloning the item and returning the ID of the clone. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.</narrative>
+    <display x="15" y="150" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to mark" expr="[txt_itemID]" />
+      <input type="text" name="Exception Reason" friendlyname="Exception Reason" narrative="A description of the reason for the exception" expr="[txt_exceptionDetail]" />
+      <input type="flag" name="Retry" friendlyname="Retry" narrative="Whether or not to retry the item, up to the maximum number of attempts specified for the queue. Optional - if not specified, the item will be retried" expr="True" />
+      <input type="flag" name="Keep Locked" friendlyname="Keep Locked" narrative="Whether or not the clone of the item should remain locked after the exception has been registered and the item is retried. Optional - default is False" expr="False" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Item ID" friendlyname="New Item ID" narrative="The Item ID of the newly cloned item. This item will be locked if 'Keep Locked' is True. This will be empty if no item was cloned (ie. the item was not retried." stage="txt_newItemID" />
+    </outputs>
+    <onsuccess>a374264f-2dbf-4477-bad7-ee4ba812e5b1</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Mark Exception" />
+  </stage>
+  <stage stageid="a97071fe-23f0-44d4-a04a-1516826f8ace" name="Mark Exception" type="Action">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Marks the item as an exception, optionally retrying it by cloning the item and returning the ID of the clone. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.</narrative>
+    <display x="345" y="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to mark" expr="[txt_itemID]" />
+      <input type="text" name="Exception Reason" friendlyname="Exception Reason" narrative="A description of the reason for the exception" expr="[txt_exceptionDetail]" />
+      <input type="flag" name="Retry" friendlyname="Retry" narrative="Whether or not to retry the item, up to the maximum number of attempts specified for the queue. Optional - if not specified, the item will be retried" expr="False" />
+      <input type="flag" name="Keep Locked" friendlyname="Keep Locked" narrative="Whether or not the clone of the item should remain locked after the exception has been registered and the item is retried. Optional - default is False" expr="False" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Item ID" friendlyname="New Item ID" narrative="The Item ID of the newly cloned item. This item will be locked if 'Keep Locked' is True. This will be empty if no item was cloned (ie. the item was not retried." stage="txt_newItemID" />
+    </outputs>
+    <onsuccess>e7450b45-6166-42c1-b727-c904883265b5</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Mark Exception" />
+  </stage>
+  <stage stageid="f06041aa-ea81-4ef5-b916-b46c6a06f168" name="End1" type="End">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="555" y="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="6b5864ff-c8f2-4c69-8e1b-d090c057cdc2" name="Tag Item" type="Action">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Adds a tag to a work queue item</narrative>
+    <display x="15" y="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the queue item to add the tag to" expr="[txt_itemID]" />
+      <input type="text" name="Tag" friendlyname="Tag" narrative="The tag to add to the item. Note that this cannot start with a '+' (plus) or '-' (minus) character, and cannot contain ';' (semi-colon) characters" expr="&quot;System Exception&quot;" />
+    </inputs>
+    <onsuccess>52e45164-64b2-41fd-b6da-09c88ec7cdf7</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Tag Item" />
+  </stage>
+  <stage stageid="808cbef2-cfe3-460f-ba72-91e0e6283988" name="System Unavailable?" type="Decision">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="15" y="-45" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="Lower([txt_exceptionType])=&quot;system unavailable exception&quot; OR Lower([txt_exceptionType])=&quot;login system exception&quot;" />
+    <ontrue>5669721f-c338-4600-9152-9d0d75cbce7e</ontrue>
+    <onfalse>b9fbad6e-b3b1-4e9b-bc71-1b96d40beeb2</onfalse>
+  </stage>
+  <stage stageid="5669721f-c338-4600-9152-9d0d75cbce7e" name="Release Item" type="Action">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Marks the item as deferred. It is unlocked, but it will not be made available for processing again until the specified time.
+
+The attempts count for the item is reset to zero.</narrative>
+    <display x="-120" y="-45" w="90" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to defer" expr="[txt_itemID]" />
+      <input type="datetime" name="Until" friendlyname="Until" narrative="When to resume processing the case" expr="Now()" />
+    </inputs>
+    <onsuccess>8500ffb8-f46a-46cf-9ec9-3637f23f10ff</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Defer" />
+  </stage>
+  <stage stageid="8500ffb8-f46a-46cf-9ec9-3637f23f10ff" name="TERMINATE" type="Exception">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="-120" y="30" w="120" h="60" />
+    <font family="Tahoma" size="10" style="Bold" color="FF0000" />
+    <exception type="" detail="[num_consecutiveExceptionLimit] &amp; &quot; consecutive incidents of &quot; &amp; [txt_exceptionType] &amp; &quot;: &quot; &amp; [txt_exceptionDetail]" />
+  </stage>
+  <stage stageid="de2c89a2-171e-4bd8-b1cf-34b1f4040f68" name="Start" type="Start">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit />
+    <display x="15" y="-45" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>7ab45a3a-74b5-4b98-8e9d-40569c256600</onsuccess>
+  </stage>
+  <stage stageid="ce1f11b6-9a7a-41aa-9e43-0a058afb3c8c" name="Note4" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>No lo hemos utilizado mucho pero en caso de que el sistema no este funcionando o haya fallado el login
+System not working or can not log in
+</narrative>
+    <display x="-105" y="-105" w="180" h="90" />
+    <font family="Tahoma" size="10" style="Bold" color="0000FF" />
+    <onsuccess>808cbef2-cfe3-460f-ba72-91e0e6283988</onsuccess>
+  </stage>
+  <stage stageid="8ffb59ed-f576-43df-89b7-8e91fa563bd0" name="Note4" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Revisa las excepciones del momento, un cambio en el sistema pudo haber ocurrido
+Check for concurrent exceptions, a system change may have occured
+</narrative>
+    <display x="120" y="135" w="120" h="90" />
+    <font family="Tahoma" size="10" style="Bold" color="0000FF" />
+    <onsuccess>a374264f-2dbf-4477-bad7-ee4ba812e5b1</onsuccess>
+  </stage>
+  <stage stageid="a9123fda-6d02-4484-aaf0-14b9b85d6b97" name="Populate Queue" type="SubSheetInfo">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="-210" y="-195" w="150" h="90" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="1db94fff-eca8-49a2-9404-2b6ba6688410" name="Populate Queue" type="SubSheet">
+    <display x="15" y="-15" w="90" h="60" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>85fbb578-f410-4f72-8ca9-58513939bc51</onsuccess>
+    <processid>b749d60a-bded-4d36-b099-3627ed699606</processid>
+  </stage>
+  <stage stageid="60ff9c2a-74c0-43ce-8d08-313ffc4fa0e8" name="Note4" type="Note">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <narrative>Podria usarse para verificar que estamos en las ventanas correctas antes de tomar el proximo Item.
+You can take the opportunity when traversing this page to confirm that the target applcations are on the correct screen ready for processing the next case.</narrative>
+    <display x="120" y="-15" w="150" h="120" />
+    <font family="Tahoma" size="10" style="Bold" color="0000FF" />
+  </stage>
+  <stage stageid="ac95564f-20e4-4325-a844-ced15edc3dc2" name="Note4" type="Note">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <narrative>Se va a dar el caso de reintento si la WorkQueue esta configurada para ello.
+The case will only retry if the WQ has been configured to enable retries.
+</narrative>
+    <display x="-90" y="135" w="120" h="90" />
+    <font family="Tahoma" size="10" style="Bold" color="0000FF" />
+  </stage>
+  <stage stageid="ef8cf057-a76a-4dff-ab94-213a4776446a" name="Calcular fecha de dia" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-210" />
+    <onsuccess>78391a7a-d229-4b07-81fb-0f448058b7a1</onsuccess>
+    <calculation expression="Today()" stage="dte_fechaDelDia" />
+  </stage>
+  <stage stageid="7b7f87b7-7e6b-45d2-8d34-ec7b2d476955" name="dte_fechaDelDia" type="Data">
+    <display x="-270" y="-45" w="150" h="30" />
+    <datatype>date</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e182046b-f541-41d5-a9fc-a49998a19360" name="txt_itemID" type="Data">
+    <display x="-150" y="300" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="71ab85fc-79ed-4387-8b03-58c2114cccab" name="col_itemData" type="Collection">
+    <display x="-150" y="255" w="150" h="60" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+  </stage>
+  <stage stageid="d98b57fb-a869-4f58-8a04-ef8635801cd4" name="num_itemAttempts" type="Data">
+    <display x="-150" y="360" w="120" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="57aba1d2-be58-415e-b936-e75192eebdac" name="txt_itemStatus" type="Data">
+    <display x="-150" y="330" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8bcc71f2-d952-4542-98e3-20dac3c6ea1d" name="num_consecutiveExceptionCount" type="Data">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="-300" y="135" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+  </stage>
+  <stage stageid="a53a72ea-b88e-498e-b011-71a84d3588b2" name="num_consecutiveExceptionLimit" type="Data">
+    <subsheetid>d599353b-a78b-40f4-ab04-255791b86a1a</subsheetid>
+    <display x="-315" y="180" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="768c6576-2bef-436c-b920-45cc47f49340" name="txt_pathRaiz" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-150" y="-45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="15471bfa-fe60-4c3d-b724-e174583d950e" name="txt_exceptionPageName" type="Data">
+    <display x="-270" y="-90" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d1deda6e-58d1-495d-b0ce-765b3c87fc3f" name="txt_pathDatosMaestros" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-150" y="-90" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dd020cb2-2a70-495c-9342-977609af6a2a" name="txt_exceptionType" type="Data">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <display x="-150" y="-15" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8a0fd083-4d92-482a-a5e7-1edaa2550347" name="txt_exceptionDetail" type="Data">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <display x="-150" y="45" w="150" h="30" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="57671191-f314-46d4-a489-68733d70024d" name="Local" type="Block">
+    <subsheetid>5fd952f0-1be2-40e8-8afa-485524c5a5cd</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="-60" w="195" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="170a6099-08b1-4024-b127-c2472b28f481" name="Global" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-480" y="-135" w="405" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="FFFF00" />
+  </stage>
+  <stage stageid="0fea77d4-fd88-4420-89ea-a56ac3d73cfe" name="Queue Item Data" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="210" w="195" h="195" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="f0886f66-abd4-4694-b8b4-891ded0235b0" name="Delete pending items" type="SubSheetInfo">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <display x="-225" y="-135" w="150" h="90" />
+  </stage>
+  <stage stageid="4327ed6b-7698-409d-9c1c-e268fc96fce4" name="Start" type="Start">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <display x="15" y="-105" />
+    <onsuccess>83fafb19-46af-4734-b5f3-d79fcfcef044</onsuccess>
+  </stage>
+  <stage stageid="07dd5758-e3d3-4ca0-be1f-741e8ca4e6fb" name="End" type="End">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <display x="15" y="150" />
+  </stage>
+  <stage stageid="83fafb19-46af-4734-b5f3-d79fcfcef044" name="Get Pending Items" type="Action">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Retrieves the IDs for all currently pending work queue items in the specified queue, matching the given tags</narrative>
+    <display x="15" y="-45" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="The name of the queue for which the pending items are required" expr="[txt_queueName]" />
+      <input type="text" name="Key Filter" friendlyname="Key Filter" narrative="Optionally, a key value to filter by. Only items with this key value will be considered." expr="" />
+      <input type="text" name="Tag Filter" friendlyname="Tag Filter" narrative="Optionally, a tag mask to filter by. This can consist of any number of tag searches - each term can be separated by a semi-colon and they are all applied to the search (ie. they are AND'ed terms not OR'ed terms). For example, &quot;Account: Joint; -Balance: Overdrawn; Card: *Visa*&quot; will include any items which match all the terms, ie. every item must have an 'Account: Joint' tag applied, no item can have a 'Balance: Overdrawn' tag applied, every item must have a tag applied which starts with 'Card: ' and then contains the text 'Visa'." expr="" />
+      <input type="number" name="Maximum" friendlyname="Maximum" narrative="Optionally, the maximum number of items to return. Default is to return all items" expr="" />
+      <input type="number" name="Skip" friendlyname="Skip" narrative="Optionally, the number of items to skip before returning. Default is zero, ie. return all items from the head of the queue" expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Pending Items" friendlyname="Pending Items" narrative="The currently pending items in the queue, referenced by ID. The single column is 'Item ID' : text. The elements in the collection will be in the order in which they will be loaded by the 'Get Next Item' action." stage="col_pendingItems" />
+    </outputs>
+    <onsuccess>cd21b7fa-1cc8-4b99-bea6-e149e5f89e74</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Get Pending Items" />
+  </stage>
+  <stage stageid="cd21b7fa-1cc8-4b99-bea6-e149e5f89e74" name="Loop col_pendingItems" type="LoopStart">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" />
+    <onsuccess>09f0199b-94fe-4861-a237-413a3b7e7f26</onsuccess>
+    <groupid>54795b85-1820-4244-9ccf-581a7ac7d2de</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>col_pendingItems</loopdata>
+  </stage>
+  <stage stageid="1999b04c-06e7-44e2-bacf-b3424e0e27dc" name="Loop col_pendingItems" type="LoopEnd">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+    <onsuccess>07dd5758-e3d3-4ca0-be1f-741e8ca4e6fb</onsuccess>
+    <groupid>54795b85-1820-4244-9ccf-581a7ac7d2de</groupid>
+  </stage>
+  <stage stageid="09f0199b-94fe-4861-a237-413a3b7e7f26" name="Delete Item" type="Action">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Delete the given item from a queue. Note that there is no locking involved in this, i.e. you should only delete an item if you are sure it is safe to do so. On the other hand, attempting to delete an item that is locked (e.g. being worked by another process) will result in an error</narrative>
+    <display x="15" y="45" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the item to delete. An error will be raised if this item does not exist, or is locked." expr="[col_pendingItems.Item ID]" />
+    </inputs>
+    <onsuccess>1999b04c-06e7-44e2-bacf-b3424e0e27dc</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Delete Item" />
+  </stage>
+  <stage stageid="3e15f535-cfc8-4e9f-9777-84ad9cb934dc" name="Delete pending items" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-75" />
+    <onsuccess>1db94fff-eca8-49a2-9404-2b6ba6688410</onsuccess>
+    <processid>5661f383-4ae8-4a41-be03-c8e84004b84e</processid>
+  </stage>
+  <stage stageid="a226ed4e-ee10-4b71-ad2a-552032032921" name="col_pendingItems" type="Collection">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <display x="-75" y="-45" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a894a176-4dd8-4407-8b66-0510abbdc16f" name="Local" type="Block">
+    <subsheetid>5661f383-4ae8-4a41-be03-c8e84004b84e</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-135" y="-75" w="105" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FFFF00" />
+  </stage>
+  <stage stageid="bf7a1c76-3a53-4764-a6c0-af553691fd61" name="UTC Inicio" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-255" />
+    <onsuccess>ef8cf057-a76a-4dff-ab94-213a4776446a</onsuccess>
+    <calculation expression="Now()" stage="dtt_UTCInicio" />
+  </stage>
+  <stage stageid="186cccfe-93f2-4a10-bef4-daa6536f6912" name="dtt_UTCInicio" type="Data">
+    <display x="-375" y="-90" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="81e19abe-fcdb-484e-9d94-0ee32fa264d5" name="UTC Final" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="195" y="-45" />
+    <onsuccess>fa5c2375-3407-44bf-8e43-3018b2193b86</onsuccess>
+    <calculation expression="Now()" stage="dtt_UTCFinal" />
+  </stage>
+  <stage stageid="5cf21fb4-7606-480e-a956-7fec5f9128e2" name="dtt_UTCFinal" type="Data">
+    <display x="-375" y="-45" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="28f63722-68cf-4fc8-967c-4ffb6ca318f6" name="Enviar Reporte" type="SubSheetInfo">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="74516415-884f-4000-89cc-00a75b6eff61" name="Start" type="Start">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="150" y="-75" />
+    <onsuccess>868692fa-34e1-42a0-b378-f9033550c47f</onsuccess>
+  </stage>
+  <stage stageid="fa5c2375-3407-44bf-8e43-3018b2193b86" name="Enviar Reporte" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="195" y="-90" />
+    <onsuccess>458762d9-7dd4-47c0-bbdc-55d193273d9c</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <processid>8a991efe-db4c-4978-bcee-6c7a99fd7101</processid>
+  </stage>
+  <stage stageid="868692fa-34e1-42a0-b378-f9033550c47f" name="Get Data From Queue" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="-30" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="The queue to get data from." expr="[txt_queueName]" />
+      <input type="datetime" name="From" friendlyname="From" narrative="The start of the data period. Items worked within this period will be included; unworked items loaded in the period will also be included." expr="[dtt_UTCInicio]" />
+      <input type="datetime" name="To" friendlyname="To" narrative="The end of the data period. Items worked within this period will be included; unworked items loaded in the period will also be included." expr="[dtt_UTCFinal]" />
+      <input type="flag" name="Include Unworked" friendlyname="Include Unworked" narrative="Optional, default False" expr="" />
+      <input type="flag" name="Include Deferred" friendlyname="Include Deferred" narrative="Optional, default False" expr="" />
+      <input type="flag" name="Include Completed" friendlyname="Include Completed" narrative="Optional, default True" expr="" />
+      <input type="flag" name="Include Exceptions" friendlyname="Include Exceptions" narrative="Optional, default True" expr="" />
+      <input type="flag" name="Include Retries" friendlyname="Include Retries" narrative="Optional, default False. Each time a queue item exceptions, a new linked 'retry' item is created with an incremented attempt number. By default, all attempts for an item will be treated as a single item for the purposes of the report. An argument of 'True' will indicate that each retry should be treated as a separate item." expr="" />
+      <input type="text" name="Tag Filter" friendlyname="Tag Filter" narrative="Optional, default blank. Selects only items matching the filter." expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data From Queue" friendlyname="Data From Queue" narrative="The data extracted from the queue" stage="col_dataFromQueue" />
+    </outputs>
+    <onsuccess>b5851350-fadc-4ca6-9378-bae12c1068f8</onsuccess>
+    <resource object="Queue Reports" action="Get Data From Queue" />
+  </stage>
+  <stage stageid="1b0adfcc-76eb-4058-a2bc-68949981a2b7" name="col_dataFromQueue" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="255" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="251ffe34-2fdd-478f-9297-271061ef8923" name="Sleep 3s" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="195" y="0" />
+    <inputs>
+      <input type="number" name="Sleep Time (Seconds)" friendlyname="Sleep Time (Seconds)" narrative="The time (in seconds) for which to sleep" expr="3" />
+    </inputs>
+    <onsuccess>81e19abe-fcdb-484e-9d94-0ee32fa264d5</onsuccess>
+    <resource object="Utility - General" action="Sleep" />
+  </stage>
+  <stage stageid="bf5c1f69-b7f3-492d-b9a8-f92876ac11b9" name="Recover1" type="Recover">
+    <loginhibit />
+    <display x="105" y="-135" />
+    <onsuccess>3ffc4ec5-8d0b-4ef7-a8c3-44e8867c2352</onsuccess>
+  </stage>
+  <stage stageid="0c04db82-4128-4edf-a1e0-7a534607e546" name="SE" type="Exception">
+    <display x="390" y="-210" />
+    <exception localized="yes" type="System Exception" detail="[txt_exceptionType]&amp;[txt_exceptionDetail]" />
+  </stage>
+  <stage stageid="3f061a0d-62bf-4826-9df3-f56929256296" name="Block1" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-60" y="-180" w="210" h="210" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="8cdedbb5-7cc8-41e9-811b-0297580409ba" name="Exception Data" type="MultipleCalculation">
+    <display x="210" y="-210" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>3b269a4f-4607-4bb3-b2a7-5bf789066367</onsuccess>
+    <steps>
+      <calculation expression="ExceptionType()" stage="txt_exceptionType" />
+      <calculation expression="ExceptionDetail()" stage="txt_exceptionDetail" />
+    </steps>
+  </stage>
+  <stage stageid="3d83e141-d3ef-4dbf-b72c-09142660915d" name="ExtraerDatosMaestros" type="SubSheetInfo">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="74501e6f-54e0-4f9a-acaa-7c3001d0cbbb" name="Start" type="Start">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <display x="15" y="-105" />
+    <onsuccess>e2ee49b3-ebc4-411b-a1d8-e8162f2f7bad</onsuccess>
+  </stage>
+  <stage stageid="64dd3107-a99a-4a43-aa86-e0d03d45c663" name="End" type="End">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <display x="15" y="165" />
+  </stage>
+  <stage stageid="e2ee49b3-ebc4-411b-a1d8-e8162f2f7bad" name="Create Instance" type="Action">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-60" />
+    <inputs>
+      <input type="flag" name="Enable Events" friendlyname="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" friendlyname="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="num_handle" />
+    </outputs>
+    <onsuccess>f28f348d-db83-4ac3-af99-69c06747bb53</onsuccess>
+    <resource object="Excel Extended - Personal" action="Create Instance" />
+  </stage>
+  <stage stageid="ff4660f7-e9f5-48bd-a579-8d164130b776" name="num_handle" type="Data">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <display x="210" y="-30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f28f348d-db83-4ac3-af99-69c06747bb53" name="Open Workbook" type="Action">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[num_handle]" />
+      <input type="text" name="File name" friendlyname="File name" narrative="The path and name of the file which should be opened." expr="[pathDatosMaestros_CONT_RenombrarArchivosRetenciones]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="txt_WorkbookName" />
+    </outputs>
+    <onsuccess>b3e6dec9-fbd2-437a-8321-4dd7840e2d90</onsuccess>
+    <resource object="Excel Extended - Personal" action="Open Workbook" />
+  </stage>
+  <stage stageid="278e5512-6d1c-400f-8e0f-0aa6fd08e7fc" name="txt_WorkbookName" type="Data">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <display x="150" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5b333790-d9ef-4b00-9455-12fa6ed3cd54" name="pathDatosMaestros_CONT_RenombrarArchivosRetenciones" type="Data">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="180" y="-105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b3e6dec9-fbd2-437a-8321-4dd7840e2d90" name="Get Worksheet As Collection" type="Action">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="30" />
+    <inputs>
+      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the worksheet which should be retrieved resides. The default of zero indicates the currently active instance." expr="[num_handle]" />
+      <input type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name of the workbook which contains the sheet required. The default empty text indicates the currently active workbook on the specified instance." expr="[txt_WorkbookName]" />
+      <input type="text" name="Worksheet Name" friendlyname="Worksheet Name" narrative="The name of the worksheet within the specified workbook which should be written to a collection. The default empty text indicates the currently active worksheet within the specified workbook." expr="&quot;Hoja1&quot;" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" friendlyname="Data" narrative="The collection containing the data from the specified worksheet - the column IDs will be gleaned from the first row on the sheet being retrieved." stage="coll_DatosMaestros" />
+    </outputs>
+    <onsuccess>60b0c51e-c40b-45a7-9e93-2ff5130044a2</onsuccess>
+    <resource object="Excel Extended - Personal" action="Get Worksheet As Collection" />
+  </stage>
+  <stage stageid="a53d31f9-7868-4980-907f-85d7d2448706" name="coll_DatosMaestros" type="Collection">
+    <display x="-435" y="-90" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+  </stage>
+  <stage stageid="c14ea218-0cf3-44e6-b295-9bc33fe378bc" name="Close Instance" type="Action">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="120" />
+    <inputs>
+      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance to be closed. Zero indicates the currently active instance." expr="[num_handle]" />
+      <input type="flag" name="Save Changes" friendlyname="Save Changes" narrative="True to save the changes to the open workbooks on the instance, False to discard any changes. Default is False." expr="False" />
+    </inputs>
+    <onsuccess>64dd3107-a99a-4a43-aa86-e0d03d45c663</onsuccess>
+    <resource object="Excel Extended - Personal" action="Close Instance" />
+  </stage>
+  <stage stageid="60b0c51e-c40b-45a7-9e93-2ff5130044a2" name="Close Workbook" type="Action">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="75" />
+    <inputs>
+      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[num_handle]" />
+      <input type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name of the workbook which should be closed." expr="[txt_WorkbookName]" />
+      <input type="flag" name="Save Data" friendlyname="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="False" />
+    </inputs>
+    <onsuccess>c14ea218-0cf3-44e6-b295-9bc33fe378bc</onsuccess>
+    <resource object="Excel Extended - Personal" action="Close Workbook" />
+  </stage>
+  <stage stageid="67463771-5da6-4b63-bf63-fc619586db94" name="Enviroment" type="Block">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="-135" w="150" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="99CC00" />
+  </stage>
+  <stage stageid="56521d50-5576-4998-8a72-d90b38ad2038" name="Variables locales" type="Block">
+    <subsheetid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="-60" w="150" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="78391a7a-d229-4b07-81fb-0f448058b7a1" name="ExtraerDatosMaestros" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-135" w="90" h="60" />
+    <onsuccess>3e15f535-cfc8-4e9f-9777-84ad9cb934dc</onsuccess>
+    <processid>25ef4879-6de2-49dc-803f-2d956e2aa6f6</processid>
+  </stage>
+  <stage stageid="1736898a-ec11-4766-b843-92796af660b7" name="Start" type="Start">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="15" y="-150" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>0910286f-075d-4aad-928e-211b7df1241f</onsuccess>
+  </stage>
+  <stage stageid="09852af0-9db5-40f9-ba71-5a625f97b94d" name="End6" type="End">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="15" y="480" />
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="0910286f-075d-4aad-928e-211b7df1241f" name="Get Files" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Folder" friendlyname="Folder" narrative="The folder in which to look for files" expr="[coll_DatosMaestros.PathArchivos]" />
+      <input type="text" name="Patterns CSV" friendlyname="Patterns CSV" narrative="The comma seperated list of wildcard patterns" expr="[coll_DatosMaestros.NombreBuscarArchivos]&amp;&quot;*.PDF&quot;" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="flg_Success" />
+      <output type="text" name="Message" friendlyname="Message" narrative="A message if unsuccessful" stage="" />
+      <output type="collection" name="Files" friendlyname="Files" narrative="The collection of files found" stage="coll_files" />
+    </outputs>
+    <onsuccess>08fdba15-9b9a-42ae-93de-f31df2e9ed61</onsuccess>
+    <resource object="Utility - File Management" action="Get Files" />
+  </stage>
+  <stage stageid="c4713f74-56b6-4aa2-86bc-d6593bca3acf" name="flg_Success" type="Data">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="105" y="-120" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b6bffce9-cfe1-47c4-aa5f-a9ed956996e4" name="coll_files" type="Collection">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="165" y="-120" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="08fdba15-9b9a-42ae-93de-f31df2e9ed61" name="Success?" type="Decision">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="15" y="-60" />
+    <decision expression="[flg_Success]" />
+    <ontrue>c219a098-9324-46aa-a6d5-c8ffe1f29d73</ontrue>
+    <onfalse>2614987e-3e03-4264-9e7b-16815dbf98d0</onfalse>
+  </stage>
+  <stage stageid="2614987e-3e03-4264-9e7b-16815dbf98d0" name="BE" type="Exception">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="105" y="-60" />
+    <exception localized="yes" type="Bussiness Exception" detail="&quot;Start Up: No se pudieron extrar los archivos SPOOL de la carpeta&quot;" />
+  </stage>
+  <stage stageid="0f08e4a5-c4b5-4d19-94b3-2c70d5b0cd34" name="Variables locales" type="Block">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="60" y="-150" w="210" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="9e8c5105-7bce-4cb6-a818-e1bd94105574" name="Loop Col_Files" type="LoopStart">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="75" />
+    <onsuccess>34668922-b454-4fc4-aafa-262c804f932e</onsuccess>
+    <groupid>fbb265ef-9db0-4987-8f84-b8361d9c424d</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>coll_files</loopdata>
+  </stage>
+  <stage stageid="7b53150b-8225-4e7c-8da3-ef99eaa408f1" name="Loop Col_Files" type="LoopEnd">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="255" />
+    <onsuccess>c95a32ca-ed4e-470c-9e81-ef2862309c06</onsuccess>
+    <groupid>fbb265ef-9db0-4987-8f84-b8361d9c424d</groupid>
+  </stage>
+  <stage stageid="04dbbf01-4183-49de-8c8b-0d831a17e211" name="Esta dentro del período?" type="Decision">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="165" />
+    <decision expression="ToNumber([coll_DatosMaestros.FechaCorrida])&gt;=ToNumber(FormatDate([coll_files.Created], &quot;dd&quot;)) AND ToNumber(FormatDate([coll_files.Created], &quot;MM&quot;))= ToNumber(FormatDate([dte_fechaDelDia], &quot;MM&quot;))" />
+    <ontrue>f76ec377-50a2-49e2-b4e7-8bb160ca2a98</ontrue>
+    <onfalse>3e807810-310a-4724-ab71-882b04f3acdd</onfalse>
+  </stage>
+  <stage stageid="3e807810-310a-4724-ab71-882b04f3acdd" name="Remove Row Coll_Files" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="210" y="165" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;coll_files&quot;" />
+    </inputs>
+    <onsuccess>155645ab-de62-43dc-81fd-6a8c93e78c26</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Remove Row" />
+  </stage>
+  <stage stageid="0460fcfc-4c80-4a96-a203-9374e8714ebf" name="Note7" type="Note">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <narrative>G:\Mi unidad\Procesos en desarrollo\Renombrar Archivos Retenciones</narrative>
+    <display x="-135" y="-105" w="210" h="30" />
+    <onsuccess>0910286f-075d-4aad-928e-211b7df1241f</onsuccess>
+  </stage>
+  <stage stageid="155645ab-de62-43dc-81fd-6a8c93e78c26" name="Anchor1" type="Anchor">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="210" y="255" w="10" h="10" />
+    <onsuccess>7b53150b-8225-4e7c-8da3-ef99eaa408f1</onsuccess>
+  </stage>
+  <stage stageid="7d41309d-06a5-4e60-ad8a-6316d8524201" name="Get Folders" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="345" />
+    <inputs>
+      <input type="text" name="Folder" friendlyname="Folder" narrative="The folder in which to look for sub-folders" expr="[coll_DatosMaestros.PathDestino]&amp;[txt_Año]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="flg_Success" />
+      <output type="text" name="Message" friendlyname="Message" narrative="An error message if unsuccessful" stage="" />
+      <output type="collection" name="Folders" friendlyname="Folders" narrative="A collection of the sub-folders found within the folder" stage="" />
+    </outputs>
+    <onsuccess>2f4f2ccd-4464-47fb-b2fb-43ffa59bec9c</onsuccess>
+    <resource object="Utility - File Management" action="Get Folders" />
+  </stage>
+  <stage stageid="2f4f2ccd-4464-47fb-b2fb-43ffa59bec9c" name="Success?" type="Decision">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="15" y="390" />
+    <decision expression="[flg_Success]" />
+    <ontrue>b54d8613-606b-4a3e-8a9b-873381e8dd1b</ontrue>
+    <onfalse>1e5f7708-7340-413d-88e4-0362ed3c43cc</onfalse>
+  </stage>
+  <stage stageid="c95a32ca-ed4e-470c-9e81-ef2862309c06" name="Calcular Año" type="Calculation">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="300" />
+    <onsuccess>7d41309d-06a5-4e60-ad8a-6316d8524201</onsuccess>
+    <calculation expression="&quot;\&quot;&amp;FormatDate(Today(), &quot;yyyy&quot;)" stage="txt_Año" />
+  </stage>
+  <stage stageid="951c5a08-7dba-4a6c-affe-bd653af91800" name="txt_Año" type="Data">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="225" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1e5f7708-7340-413d-88e4-0362ed3c43cc" name="Create Directory" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="390" />
+    <inputs>
+      <input type="text" name="Directory Path" friendlyname="Directory Path" narrative="The path in which to create the directory" expr="[coll_DatosMaestros.PathDestino]&amp;[txt_Año]" />
+      <input type="flag" name="Error If Already Exists" friendlyname="Error If Already Exists" narrative="True to generate an error if the directory already exists" expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="" />
+      <output type="text" name="Message" friendlyname="Message" narrative="An error message if unsuccessful" stage="" />
+    </outputs>
+    <onsuccess>4f971b8c-db91-4179-b77f-79645c46e0db</onsuccess>
+    <resource object="Utility - File Management" action="Create Directory" />
+  </stage>
+  <stage stageid="4f971b8c-db91-4179-b77f-79645c46e0db" name="Anchor2" type="Anchor">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="345" w="10" h="10" />
+    <onsuccess>7d41309d-06a5-4e60-ad8a-6316d8524201</onsuccess>
+  </stage>
+  <stage stageid="b54d8613-606b-4a3e-8a9b-873381e8dd1b" name="Add To Queue" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>The Data collection contains the items to be added to the queue. The collection may contain single or multiple rows, with each representing an item to be added.
+
+If there is a failure during the process, the queue will be unchanged - i.e. no rows will be loaded even if the error occurred on the last one.
+
+If Defer Until is specified, the items will not be available to be worked until then. Otherwise, they are available immediately.
+
+If the queue has a key field defined, an item added has key data longer than the maximum permitted 255 characters, an error will occur</narrative>
+    <display x="15" y="435" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="The name of the queue to add items to" expr="[txt_queueName]" />
+      <input type="collection" name="Data" friendlyname="Data" narrative="A collection containing the data, one row for each item to be added" expr="[coll_files]" />
+      <input type="datetime" name="Defer Until" friendlyname="Defer Until" narrative="Optionally, the date/time the new item(s) should be deferred until" expr="" />
+      <input type="number" name="Priority" friendlyname="Priority" narrative="Optionally, the priority for the new item(s). Lower numbers represent higher priorities. The default is 0." expr="" />
+      <input type="text" name="Tags" friendlyname="Tags" narrative="Optionally, a semi-colon-separated set of tags to apply to the queue item(s)" expr="" />
+      <input type="text" name="Status" friendlyname="Status" narrative="Optionally, the initial status required of the work queue item(s) " expr="" />
+      <input type="number" name="Batch Size" friendlyname="Batch Size" narrative="Optionally, the batch size to use when adding many items to the queue.  A Value of 0 will process all items in one batch.  An empty field will use the default batch size of 1000." expr="">
+        <validator type="BluePrism.AutomateProcessCore.RangeParameterValidation" parameter="0:25000" />
+      </input>
+    </inputs>
+    <outputs>
+      <output type="collection" name="Item IDs" friendlyname="Item IDs" narrative="The IDs of the items which have been added to the queue, in the order of the collection of data passed that was input" stage="" />
+    </outputs>
+    <onsuccess>09852af0-9db5-40f9-ba71-5a625f97b94d</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Add To Queue" />
+  </stage>
+  <stage stageid="c219a098-9324-46aa-a6d5-c8ffe1f29d73" name="Append Field (Text) Coll_Files" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="collection" name="Collection" friendlyname="Collection" narrative="The collection to append a field to." expr="[coll_files]" />
+      <input type="text" name="Field Name" friendlyname="Field Name" narrative="The name of the new field." expr="&quot;ItemKey&quot;" />
+      <input type="text" name="Value" friendlyname="Value" narrative="The value to be put in the new field." expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Appended Collection" friendlyname="Appended Collection" narrative="The collection with field appended." stage="coll_files" />
+    </outputs>
+    <onsuccess>4dd2a4fe-bdaa-4b4d-8325-dc29b8698646</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Append Field (Text)" />
+  </stage>
+  <stage stageid="f76ec377-50a2-49e2-b4e7-8bb160ca2a98" name="Calcular ItemKey" type="Calculation">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="210" />
+    <onsuccess>7b53150b-8225-4e7c-8da3-ef99eaa408f1</onsuccess>
+    <calculation expression="Replace([coll_files.Name], &quot;.pdf&quot;, &quot;&quot;)&amp;&quot; - &quot;&amp;FormatDate(Today(), &quot;dd MMM yyyy&quot;)" stage="coll_files.ItemKey" />
+  </stage>
+  <stage stageid="a0cb5dc6-949a-46ed-8b90-f322567c7165" name="GetValue" type="Action">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="60" />
+    <inputs>
+      <input type="text" name="file path" friendlyname="file path" expr="[txt_Path]" />
+      <input type="text" name="file name" friendlyname="file name" expr="[txt_nombreArchivo]" />
+      <input type="text" name="script" friendlyname="script" expr="&quot;Extraer_Texto_PDF.py&quot;" />
+    </inputs>
+    <outputs>
+      <output type="text" name="resultado" friendlyname="resultado" stage="txt_resultado" />
+    </outputs>
+    <onsuccess>99482b08-bd89-4b27-bda2-6853bd01fb22</onsuccess>
+    <resource object="Get text_PDF" action="GetValue" />
+  </stage>
+  <stage stageid="ad5e4285-1942-47b0-b0d1-dd63ce18f631" name="End5" type="End">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="435" />
+  </stage>
+  <stage stageid="4d672213-7e97-4e98-b99e-430d97e816e1" name="txt_resultado" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="180" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="99482b08-bd89-4b27-bda2-6853bd01fb22" name="Split Lines" type="Action">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <inputs>
+      <input type="text" name="Text to Split" friendlyname="Text to Split" narrative="The text to split" expr="[txt_resultado]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Split Values" friendlyname="Split Values" narrative="The resulting collection containing the split values" stage="coll_SplitValues" />
+    </outputs>
+    <onsuccess>562f359c-29cd-41be-9786-1ed5ebb44a36</onsuccess>
+    <resource object="Utility - Strings" action="Split Lines" />
+  </stage>
+  <stage stageid="3ffc4ec5-8d0b-4ef7-a8c3-44e8867c2352" name="Anchor3" type="Anchor">
+    <loginhibit onsuccess="true" />
+    <display x="210" y="-135" w="10" h="10" />
+    <onsuccess>8cdedbb5-7cc8-41e9-811b-0297580409ba</onsuccess>
+  </stage>
+  <stage stageid="de216abf-6d85-4cc5-8abf-6c119fc9555d" name="txt_Path" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="240" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7ab45a3a-74b5-4b98-8e9d-40569c256600" name="Replace" type="MultipleCalculation">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" />
+    <onsuccess>a0cb5dc6-949a-46ed-8b90-f322567c7165</onsuccess>
+    <steps>
+      <calculation expression="Replace([col_itemData.Folder]&amp;&quot;\&quot;, &quot; &quot;, &quot;¤&quot;)" stage="txt_Path" />
+      <calculation expression="Replace([col_itemData.Name], &quot; &quot;, &quot;¤&quot;)" stage="txt_nombreArchivo" />
+    </steps>
+  </stage>
+  <stage stageid="39412c54-cb62-4ede-a8c6-5fce37347bb1" name="txt_nombreArchivo" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="315" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="46276def-ad16-4555-9379-ede37bf324c2" name="coll_SplitValues" type="Collection">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="390" y="-30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a21ab24d-e9cb-478b-94d0-af8e2db1e8d7" name="1.1_ManipularDatos" type="SubSheetInfo">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="-180" y="-75" w="150" h="90" />
+  </stage>
+  <stage stageid="f384d0e2-f591-4f62-be38-8f21e64a2eb8" name="Start" type="Start">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="15" y="-135" />
+    <inputs>
+      <input type="collection" name="Informacion Factura" stage="coll_InfoFactura" />
+    </inputs>
+    <onsuccess>b8d80380-c916-46de-8a6f-81bae720ad62</onsuccess>
+  </stage>
+  <stage stageid="3538868b-713d-40ee-969a-193dfcc2112c" name="End" type="End">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="15" y="615" />
+    <outputs>
+      <output type="text" name="Nombre Factura" stage="txt_NombreFactura" />
+    </outputs>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+  </stage>
+  <stage stageid="b93c0e42-4581-4694-8ae7-413abcb4643a" name="Tipo de Factura" type="ChoiceStart">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-30" />
+    <groupid>58e67406-ccfd-42d6-9c15-cc516e6f4278</groupid>
+    <choices>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot;Impuesto : &quot;)">
+        <name>Factura AFIP</name>
+        <distance>69.375</distance>
+        <ontrue>eb2a88a9-9bfa-4226-8473-1560a882f6e1</ontrue>
+      </choice>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot;Certificado Nº:  &quot;)">
+        <name>Comprobante Factura AFIP</name>
+        <distance>138.75</distance>
+        <ontrue>db1729b3-0e23-4ce7-819d-eb70d200528d</ontrue>
+      </choice>
+      <choice expression="[flg_Banera]">
+        <name>Tipo Factura?</name>
+        <distance>208.125</distance>
+        <ontrue>87b3618f-ceb1-419b-aeb4-ca955803bac8</ontrue>
+      </choice>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot; OBSERVACIONESINGRESOS BRUTOSPROVINCIA DE SANTA&quot;)">
+        <name>Ingresos brutos santa Fe</name>
+        <distance>277.5</distance>
+        <ontrue>a1dd642d-8c49-4aa0-8e6b-10935d48403e</ontrue>
+      </choice>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot; OBSERVACIONESSUSS-Limpieza. Certif sin&quot;)">
+        <name>SUSS</name>
+        <distance>346.875</distance>
+        <ontrue>1acaedec-ca67-4a03-ae48-eeacd063ea02</ontrue>
+      </choice>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot;Fecha de la Retención&quot;)">
+        <name>Factura Tcel</name>
+        <distance>416.25</distance>
+        <ontrue>09d2f89c-0a2c-472c-a9b7-00b35a3857b7</ontrue>
+      </choice>
+      <choice expression="StartsWith([coll_InfoFactura.Value], &quot;          COMPROBANTE DE RETENCION&quot;)">
+        <name>Nombre Factura Tcel</name>
+        <distance>485.625</distance>
+        <ontrue>86eac209-5276-42d4-85ad-5bf6b11ffa21</ontrue>
+      </choice>
+    </choices>
+  </stage>
+  <stage stageid="f9713f60-7c20-4d4a-8e84-fe4c61052ef6" name="Otherwise1" type="ChoiceEnd">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="525" />
+    <onsuccess>af4d8bf2-6759-4665-acf2-e28e69984e51</onsuccess>
+    <groupid>58e67406-ccfd-42d6-9c15-cc516e6f4278</groupid>
+  </stage>
+  <stage stageid="0dc2f406-60e5-4065-9beb-4598ebaac828" name="coll_InfoFactura" type="Collection">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="165" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="562f359c-29cd-41be-9786-1ed5ebb44a36" name="1.1_ManipularDatos" type="SubSheet">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="165" />
+    <inputs>
+      <input type="collection" name="Informacion Factura" friendlyname="Informacion Factura" expr="[coll_SplitValues]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Nombre Factura" friendlyname="Nombre Factura" stage="txt_NombreFactura" />
+    </outputs>
+    <onsuccess>7a0b5fbe-2114-418b-a7bc-480c8cec287b</onsuccess>
+    <processid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</processid>
+  </stage>
+  <stage stageid="b8d80380-c916-46de-8a6f-81bae720ad62" name="Loop colInfoFactura" type="LoopStart">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-75" />
+    <onsuccess>b93c0e42-4581-4694-8ae7-413abcb4643a</onsuccess>
+    <groupid>02444696-8af0-4067-946f-dfa9d16f3721</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>coll_InfoFactura</loopdata>
+  </stage>
+  <stage stageid="af4d8bf2-6759-4665-acf2-e28e69984e51" name="Loop colInfoFactura" type="LoopEnd">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="570" />
+    <onsuccess>17e1e1f7-d8fc-4df0-98ce-1b2c48e9830f</onsuccess>
+    <groupid>02444696-8af0-4067-946f-dfa9d16f3721</groupid>
+  </stage>
+  <stage stageid="eb2a88a9-9bfa-4226-8473-1560a882f6e1" name="Es de impuesto a las ganancias?" type="Decision">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="150" y="0" />
+    <decision expression="InStr([coll_InfoFactura.Value], &quot;Impuesto a las Ganancias&quot;)&gt;10" />
+    <ontrue>67c44310-3264-4bcf-a6d9-bd1d97a8a8b8</ontrue>
+    <onfalse>73cdca4c-5e55-4f5c-851d-1f2132218dc2</onfalse>
+  </stage>
+  <stage stageid="db1729b3-0e23-4ce7-819d-eb70d200528d" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="165" y="120" />
+    <onsuccess>e37874ae-ee35-43c9-92c2-8764252cea1d</onsuccess>
+    <calculation expression="Replace([coll_InfoFactura.Value], &quot;Certificado Nº:  &quot;, &quot;&quot;)&amp;&quot; &quot;&amp;[txt_NombreFactura]&amp;&quot;.pdf&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="a228ec35-3ebd-4506-8a65-64a3c9d92224" name="Anchor4" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="0" w="10" h="10" />
+    <onsuccess>c3daee65-dd8c-48af-a74a-ab6313fa17c0</onsuccess>
+  </stage>
+  <stage stageid="e37874ae-ee35-43c9-92c2-8764252cea1d" name="Anchor5" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="420" y="120" w="10" h="10" />
+    <onsuccess>de283ae7-7d7d-4e2d-85d2-4ab5d31edf91</onsuccess>
+  </stage>
+  <stage stageid="0f1ed7c0-3f00-4b13-8471-bb67d91aebea" name="txt_NombreFactura" type="Data">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="105" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b3a9913b-065a-4634-87d0-86a62715067b" name="Anchor6" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="570" w="10" h="10" />
+    <onsuccess>af4d8bf2-6759-4665-acf2-e28e69984e51</onsuccess>
+  </stage>
+  <stage stageid="3de95894-3ffe-49c8-8c0b-8fdecbfb4b6e" name="Anchor7" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="420" y="615" w="10" h="10" />
+    <onsuccess>3538868b-713d-40ee-969a-193dfcc2112c</onsuccess>
+  </stage>
+  <stage stageid="957a76ef-2858-4df0-86b3-f93d9eb20b2e" name="Copy File" type="Action">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="255" />
+    <inputs>
+      <input type="text" name="File Path" friendlyname="File Path" narrative="The full path to the file to be copied" expr="[col_itemData.Path]" />
+      <input type="text" name="Destination Path" friendlyname="Destination Path" narrative="The path of the directory to copy the file to" expr="[coll_DatosMaestros.PathDestino]&amp;[txt_Año]&amp;[txt_NombreFactura]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="flg_success" />
+      <output type="text" name="Message" friendlyname="Message" narrative="An error message if unsuccessful" stage="" />
+    </outputs>
+    <onsuccess>9fc169ee-ebf3-4816-9542-0fa1c55475e3</onsuccess>
+    <resource object="Utility - File Management" action="Copy File" />
+  </stage>
+  <stage stageid="9fc169ee-ebf3-4816-9542-0fa1c55475e3" name="Success?" type="Decision">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="300" />
+    <decision expression="[flg_success]" />
+    <ontrue>807b4eb9-86b7-47ea-a57c-31c2d0f48265</ontrue>
+    <onfalse>6a8da5c3-dca5-49b3-a565-6d23f39ae5ff</onfalse>
+  </stage>
+  <stage stageid="6a8da5c3-dca5-49b3-a565-6d23f39ae5ff" name="BE" type="Exception">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="105" y="300" />
+    <exception localized="yes" type="Bussiness Exception" detail="&quot;1)Mover Archivo: No se pudo copiar la factura de: &quot;&amp;[txt_NombreFactura]" />
+  </stage>
+  <stage stageid="056eb865-f46f-44d7-918b-6110411dedf7" name="txt_NombreFactura" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="450" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c49e9a74-73bd-4215-8538-8020058efdeb" name="flg_success" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="510" y="-30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c3daee65-dd8c-48af-a74a-ab6313fa17c0" name="Anchor9" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="75" w="10" h="10" />
+    <onsuccess>a1051247-a3b3-4b90-a07d-878d064462fa</onsuccess>
+  </stage>
+  <stage stageid="7a0b5fbe-2114-418b-a7bc-480c8cec287b" name="Calcular Año" type="Calculation">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="210" />
+    <onsuccess>957a76ef-2858-4df0-86b3-f93d9eb20b2e</onsuccess>
+    <calculation expression="&quot;\&quot;&amp;FormatDate(Today(), &quot;yyyy&quot;)&amp;&quot;\&quot;" stage="txt_Año" />
+  </stage>
+  <stage stageid="594c2f1a-9cbf-4246-a0e8-94193121242e" name="txt_Año" type="Data">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <display x="120" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e2e77f6a-f249-47d4-8bc7-9845ce94fdde" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="165" y="165" />
+    <onsuccess>dc1a9404-0a23-4a6e-93b7-b80d58118a5d</onsuccess>
+    <calculation expression="&quot;fact M gcias&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="67c44310-3264-4bcf-a6d9-bd1d97a8a8b8" name="Calcular Bandera" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="0" />
+    <onsuccess>a228ec35-3ebd-4506-8a65-64a3c9d92224</onsuccess>
+    <calculation expression="True" stage="flg_Banera" />
+  </stage>
+  <stage stageid="ef745846-e6fd-471d-9bee-7cf933840d4e" name="flg_Banera" type="Data">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="225" y="-75" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="87b3618f-ceb1-419b-aeb4-ca955803bac8" name="Es la Factura M - Ganancias?" type="Decision">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="75" y="165" />
+    <decision expression="[coll_InfoFactura.Value]=&quot;Régimen : Factura M - Ganancias - Emisión de comprobantes co&quot;" />
+    <ontrue>e2e77f6a-f249-47d4-8bc7-9845ce94fdde</ontrue>
+    <onfalse>3ebfc05c-2599-498e-b100-61ecd3c1a424</onfalse>
+  </stage>
+  <stage stageid="3ebfc05c-2599-498e-b100-61ecd3c1a424" name="Es la factura M IVA?" type="Decision">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="75" y="210" />
+    <decision expression="[coll_InfoFactura.Value]=&quot;Régimen : Factura M - IVA - Emisión de comprobantes con disc&quot;" />
+    <ontrue>dafd0f8c-7e3e-495d-8fd7-a699f8917839</ontrue>
+    <onfalse>c93feac6-839f-416d-beaf-a2d2d711ddaa</onfalse>
+  </stage>
+  <stage stageid="dafd0f8c-7e3e-495d-8fd7-a699f8917839" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="165" y="210" />
+    <onsuccess>e8c5e2d8-0616-4555-9151-fa13438f69cc</onsuccess>
+    <calculation expression="&quot;fact M iva&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="c93feac6-839f-416d-beaf-a2d2d711ddaa" name="Es la factura de ganancias?" type="Decision">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="75" y="255" />
+    <decision expression="[coll_InfoFactura.Value]=&quot;Régimen : Retención de Ganancias Factura  A c/leyenda        &quot;" />
+    <ontrue>9e39af59-3053-46c9-b7d5-5574e9e4bdbf</ontrue>
+    <onfalse>05c09578-ea33-4fda-b1ce-c849992b50af</onfalse>
+  </stage>
+  <stage stageid="9e39af59-3053-46c9-b7d5-5574e9e4bdbf" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="165" y="255" />
+    <onsuccess>538c022b-1272-4b6c-8e7f-2dc6176476db</onsuccess>
+    <calculation expression="&quot;ganancias&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="a1051247-a3b3-4b90-a07d-878d064462fa" name="Anchor10" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="165" w="10" h="10" />
+    <onsuccess>b0761b0f-9bb2-4c30-b47a-8ed711e0f793</onsuccess>
+  </stage>
+  <stage stageid="b0761b0f-9bb2-4c30-b47a-8ed711e0f793" name="Anchor11" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="210" w="10" h="10" />
+    <onsuccess>a6f40020-0b8c-47db-bf40-3846b20e15e0</onsuccess>
+  </stage>
+  <stage stageid="a6f40020-0b8c-47db-bf40-3846b20e15e0" name="Anchor12" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="255" w="10" h="10" />
+    <onsuccess>e6f5278f-1201-4ed9-9855-013820551ac9</onsuccess>
+  </stage>
+  <stage stageid="dc1a9404-0a23-4a6e-93b7-b80d58118a5d" name="Calcular Bandera" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="255" y="165" />
+    <onsuccess>a1051247-a3b3-4b90-a07d-878d064462fa</onsuccess>
+    <calculation expression="False" stage="flg_Banera" />
+  </stage>
+  <stage stageid="e8c5e2d8-0616-4555-9151-fa13438f69cc" name="Calcular Bandera" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="255" y="210" />
+    <onsuccess>b0761b0f-9bb2-4c30-b47a-8ed711e0f793</onsuccess>
+    <calculation expression="False" stage="flg_Banera" />
+  </stage>
+  <stage stageid="538c022b-1272-4b6c-8e7f-2dc6176476db" name="Calcular Bandera" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="255" y="255" />
+    <onsuccess>a6f40020-0b8c-47db-bf40-3846b20e15e0</onsuccess>
+    <calculation expression="False" stage="flg_Banera" />
+  </stage>
+  <stage stageid="73cdca4c-5e55-4f5c-851d-1f2132218dc2" name="Es de impuesto a las ganancias?" type="Decision">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="150" y="45" />
+    <decision expression="InStr([coll_InfoFactura.Value], &quot;Impuesto al Valor Agregado&quot;)&gt;10" />
+    <ontrue>1fc9daab-7358-42ad-9aaa-033380086c18</ontrue>
+    <onfalse>314f0d15-f8f4-4e46-bfcd-18802da15a25</onfalse>
+  </stage>
+  <stage stageid="1fc9daab-7358-42ad-9aaa-033380086c18" name="Anchor8" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="45" w="10" h="10" />
+    <onsuccess>67c44310-3264-4bcf-a6d9-bd1d97a8a8b8</onsuccess>
+  </stage>
+  <stage stageid="17e1e1f7-d8fc-4df0-98ce-1b2c48e9830f" name="BE" type="Exception">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <display x="-150" y="570" />
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <exception localized="yes" type="Bussiness Exception" detail="&quot;La Factura: &quot;&amp;[col_itemData.Name]&amp;&quot; No se pudo cambiar el nombre, ni reubicarla&quot;" />
+  </stage>
+  <stage stageid="de283ae7-7d7d-4e2d-85d2-4ab5d31edf91" name="Anchor13" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="420" y="315" w="10" h="10" />
+    <onsuccess>cd94e967-aa69-40a3-aac1-000828c65397</onsuccess>
+  </stage>
+  <stage stageid="ca885940-7f19-4d62-bd7c-7126c160522a" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="225" y="315" />
+    <onsuccess>de283ae7-7d7d-4e2d-85d2-4ab5d31edf91</onsuccess>
+    <calculation expression="[txt_NombreFactura]&amp;&quot; isib sta fe.pdf&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="a1dd642d-8c49-4aa0-8e6b-10935d48403e" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="315" />
+    <onsuccess>ca885940-7f19-4d62-bd7c-7126c160522a</onsuccess>
+    <calculation expression="Right([coll_InfoFactura.Value], 10)" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="1acaedec-ca67-4a03-ae48-eeacd063ea02" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="360" />
+    <onsuccess>4ea067ce-6fa4-4211-9301-88b38a36dd52</onsuccess>
+    <calculation expression="Right([coll_InfoFactura.Value], 10)" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="4ea067ce-6fa4-4211-9301-88b38a36dd52" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="180" y="360" />
+    <onsuccess>cd94e967-aa69-40a3-aac1-000828c65397</onsuccess>
+    <calculation expression="[txt_NombreFactura]&amp;&quot; SUSS.pdf&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="cd94e967-aa69-40a3-aac1-000828c65397" name="Anchor14" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="420" y="360" w="10" h="10" />
+    <onsuccess>5e35d837-02cf-450d-9e07-cc88080b5c1f</onsuccess>
+  </stage>
+  <stage stageid="f297e46b-3a60-4a3a-a590-91d3b30922a0" name="End" type="End">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="240" y="690" />
+  </stage>
+  <stage stageid="3f07b7a1-f709-4cd4-8d20-f657d40d6314" name="Loop coll_CompletedFromQueue" type="LoopStart">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="180" />
+    <onsuccess>2d1302c3-1fa8-4d9f-9ef3-eae3e2d4ff80</onsuccess>
+    <groupid>200b853d-4e76-418d-876c-2e50219b4f90</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>coll_CompletedFromQueue</loopdata>
+  </stage>
+  <stage stageid="7490803c-40e6-450b-aeef-d4f2ad4d3b86" name="Loop coll_CompletedFromQueue" type="LoopEnd">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="315" />
+    <onsuccess>7931aa0f-86b2-4be1-a7a2-1694e7c1c625</onsuccess>
+    <groupid>200b853d-4e76-418d-876c-2e50219b4f90</groupid>
+  </stage>
+  <stage stageid="da66cc1a-a645-4341-ad8d-a65b0c035798" name="Completar coll_ArchivosRenombrados" type="MultipleCalculation">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="270" />
+    <onsuccess>7490803c-40e6-450b-aeef-d4f2ad4d3b86</onsuccess>
+    <steps>
+      <calculation expression="[coll_CompletedFromQueue.Name]" stage="coll_ArchviosRenombrados.Nombre" />
+      <calculation expression="[coll_CompletedFromQueue.ArchivoRenombrado]" stage="coll_ArchviosRenombrados.Observaciones" />
+      <calculation expression="&quot;COMPLETADO&quot;" stage="coll_ArchviosRenombrados.Estado" />
+    </steps>
+  </stage>
+  <stage stageid="34a4aad4-5172-4320-8e6a-7e1d613fa436" name="coll_ArchviosRenombrados" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="375" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Nombre" type="text" />
+      <field name="Estado" type="text" />
+      <field name="Observaciones" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="2d1302c3-1fa8-4d9f-9ef3-eae3e2d4ff80" name="Collections::Add Row" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="225" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;coll_ArchviosRenombrados&quot;" />
+    </inputs>
+    <onsuccess>da66cc1a-a645-4341-ad8d-a65b0c035798</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="04b745d8-084b-47e0-8049-60f74a52170e" name="coll_Cabecera" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="375" y="-30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Datos" type="text" />
+    </collectioninfo>
+    <initialvalue>
+      <row>
+        <field name="Datos" type="text" value="Buenas tardes!" />
+      </row>
+      <row>
+        <field name="Datos" type="text" value="Les adjunto un reporte de las facturas que renombré:" />
+      </row>
+    </initialvalue>
+  </stage>
+  <stage stageid="cc410385-9991-414a-99dd-52fa34f58fa0" name="Cabecera" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="450" />
+    <inputs>
+      <input type="collection" name="BodyStart" friendlyname="BodyStart" narrative="Colección con todas las lineas a enviar en el inicio del mail" expr="[coll_Cabecera]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="MailStart" friendlyname="MailStart" stage="txt_MailStart" />
+    </outputs>
+    <onsuccess>6e23c1db-c4bd-48b2-8cab-1d68cfced931</onsuccess>
+    <resource object="Utility - Send Table" action="Cabecera" />
+  </stage>
+  <stage stageid="6064c786-06d0-43de-b94b-ff91c26ac7cf" name="Send Email" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="645" />
+    <inputs>
+      <input type="text" name="To:" friendlyname="To:" expr="[mailTeam]" />
+      <input type="text" name="Subject" friendlyname="Subject" expr="&quot;CONT_RenombrarArchivosRetenciones&quot;" />
+      <input type="text" name="Body" friendlyname="Body" expr="[txt_MailStart]&amp;[txt_outEmailBody]" />
+      <input type="collection" name="Attachments" friendlyname="Attachments" expr="" />
+      <input type="flag" name="Body is HTML" friendlyname="Body is HTML" expr="True" />
+    </inputs>
+    <onsuccess>f297e46b-3a60-4a3a-a590-91d3b30922a0</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <resource object="Utilidad - Mails" action="Send Email" />
+  </stage>
+  <stage stageid="46881a29-1564-44f4-8ae2-5be6159a88e9" name="Filter Collection" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="135" />
+    <inputs>
+      <input type="collection" name="Collection In" friendlyname="Collection In" narrative="The collection to filter." expr="[col_dataFromQueue]" />
+      <input type="text" name="Filter" friendlyname="Filter" narrative="The filter query." expr="&quot;[BP_Status] like '%Completed%' &quot;" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Collection Out" friendlyname="Collection Out" narrative="The filtered collection." stage="coll_CompletedFromQueue" />
+    </outputs>
+    <onsuccess>86e9baf3-b53c-44c4-947f-185cdcbe97a5</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Filter Collection" />
+  </stage>
+  <stage stageid="86e9baf3-b53c-44c4-947f-185cdcbe97a5" name="Filter Collection" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="180" />
+    <inputs>
+      <input type="collection" name="Collection In" friendlyname="Collection In" narrative="The collection to filter." expr="[col_dataFromQueue]" />
+      <input type="text" name="Filter" friendlyname="Filter" narrative="The filter query." expr="&quot;[BP_Exception_Type] like '%Business Exception%' OR [BP_Exception_Type] like '%System Exception%' &quot;" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Collection Out" friendlyname="Collection Out" narrative="The filtered collection." stage="coll_ExceptionFromQueue" />
+    </outputs>
+    <onsuccess>3f07b7a1-f709-4cd4-8d20-f657d40d6314</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Filter Collection" />
+  </stage>
+  <stage stageid="7931aa0f-86b2-4be1-a7a2-1694e7c1c625" name="Loop Coll_ExceptionFromQueue" type="LoopStart">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="315" />
+    <onsuccess>82e98328-36f1-41fc-ba88-f01c12e8669c</onsuccess>
+    <groupid>cee25b0a-bd35-4c7b-af81-996bc9d0607f</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>coll_ExceptionFromQueue</loopdata>
+  </stage>
+  <stage stageid="a3971b06-566c-4bcb-abf8-cf8fb7eeaeab" name="Loop Coll_ExceptionFromQueue" type="LoopEnd">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="450" />
+    <onsuccess>cc410385-9991-414a-99dd-52fa34f58fa0</onsuccess>
+    <groupid>cee25b0a-bd35-4c7b-af81-996bc9d0607f</groupid>
+  </stage>
+  <stage stageid="b5851350-fadc-4ca6-9378-bae12c1068f8" name="Count Rows" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="15" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;col_dataFromQueue&quot;" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Count" friendlyname="Count" narrative="The number of rows counted in the collection" stage="num_count" />
+    </outputs>
+    <onsuccess>20d51283-cc16-44ae-9919-dfd8c315c3bf</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Count Rows" />
+  </stage>
+  <stage stageid="20d51283-cc16-44ae-9919-dfd8c315c3bf" name="Hay Datos?" type="Decision">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="150" y="60" />
+    <decision expression="[num_count]&lt;&gt;0" />
+    <ontrue>46881a29-1564-44f4-8ae2-5be6159a88e9</ontrue>
+    <onfalse>472390c5-69f4-4967-8668-f1e87814b26f</onfalse>
+  </stage>
+  <stage stageid="bb50df25-78b9-41a3-b619-218aebf1c0a4" name="End7" type="End">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-45" y="60" />
+  </stage>
+  <stage stageid="82e98328-36f1-41fc-ba88-f01c12e8669c" name="Collections::Add Row" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="360" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;coll_Exception&quot;" />
+    </inputs>
+    <onsuccess>16aea734-d4ef-4a0a-86f9-99bbc59142d7</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="472390c5-69f4-4967-8668-f1e87814b26f" name="Send Email" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="45" y="60" />
+    <inputs>
+      <input type="text" name="To:" friendlyname="To:" expr="[mailTeam]" />
+      <input type="text" name="Subject" friendlyname="Subject" expr="&quot;CONT - Renombrar archivos de retenciones&quot;" />
+      <input type="text" name="Body" friendlyname="Body" expr="&quot;Buenos días! No hubo ningún archivo para renombrar&quot;" />
+      <input type="collection" name="Attachments" friendlyname="Attachments" expr="" />
+      <input type="flag" name="Body is HTML" friendlyname="Body is HTML" expr="True" />
+    </inputs>
+    <onsuccess>bb50df25-78b9-41a3-b619-218aebf1c0a4</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <resource object="Utilidad - Mails" action="Send Email" />
+  </stage>
+  <stage stageid="6e23c1db-c4bd-48b2-8cab-1d68cfced931" name="Generar cuerpo de reporte" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="495" />
+    <inputs>
+      <input type="collection" name="Cuerpo" friendlyname="Cuerpo" expr="[coll_ArchviosRenombrados]" />
+      <input type="flag" name="Error" friendlyname="Error" expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="outEmailBody" friendlyname="outEmailBody" stage="txt_outEmailBody" />
+    </outputs>
+    <onsuccess>dfb1639c-bfa0-4301-b252-cccda95a43b8</onsuccess>
+    <resource object="Generar Reporte HTML" action="Generar cuerpo de reporte" />
+  </stage>
+  <stage stageid="87a64212-bcd9-44ab-84f8-87d3469cf165" name="num_count" type="Data">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="255" y="-30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="09d2f89c-0a2c-472c-a9b7-00b35a3857b7" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="90" y="405" />
+    <onsuccess>293f7bf2-aa3c-434b-8d0e-658051bfca58</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <calculation expression="Replace(Right([coll_InfoFactura.Value], 11), &quot; &quot;, &quot;&quot;)" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="293f7bf2-aa3c-434b-8d0e-658051bfca58" name="Anchor15" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="405" w="10" h="10" />
+    <onsuccess>b3a9913b-065a-4634-87d0-86a62715067b</onsuccess>
+  </stage>
+  <stage stageid="86eac209-5276-42d4-85ad-5bf6b11ffa21" name="Calcular Nombre Factura" type="Calculation">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="90" y="510" />
+    <onsuccess>5e35d837-02cf-450d-9e07-cc88080b5c1f</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <calculation expression="[txt_NombreFactura]&amp;&quot; tcei.pdf&quot;" stage="txt_NombreFactura" />
+  </stage>
+  <stage stageid="5e35d837-02cf-450d-9e07-cc88080b5c1f" name="Anchor16" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="420" y="510" w="10" h="10" />
+    <onsuccess>3de95894-3ffe-49c8-8c0b-8fdecbfb4b6e</onsuccess>
+  </stage>
+  <stage stageid="e85603d7-dcdd-4cd0-a71e-3848f6522d85" name="coll_CompletedFromQueue" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="435" y="-30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4dd2a4fe-bdaa-4b4d-8325-dc29b8698646" name="Append Field (Text) Coll_Files" type="Action">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="30" />
+    <inputs>
+      <input type="collection" name="Collection" friendlyname="Collection" narrative="The collection to append a field to." expr="[coll_files]" />
+      <input type="text" name="Field Name" friendlyname="Field Name" narrative="The name of the new field." expr="&quot;ArchivoRenombrado&quot;" />
+      <input type="text" name="Value" friendlyname="Value" narrative="The value to be put in the new field." expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Appended Collection" friendlyname="Appended Collection" narrative="The collection with field appended." stage="coll_files" />
+    </outputs>
+    <onsuccess>9e8c5105-7bce-4cb6-a818-e1bd94105574</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Append Field (Text)" />
+  </stage>
+  <stage stageid="807b4eb9-86b7-47ea-a57c-31c2d0f48265" name="Guardar Nombre Factura" type="Calculation">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="345" />
+    <onsuccess>66ab601c-8389-43fd-9777-6b939e230912</onsuccess>
+    <calculation expression="[txt_NombreFactura]" stage="col_itemData.ArchivoRenombrado" />
+  </stage>
+  <stage stageid="66ab601c-8389-43fd-9777-6b939e230912" name="Set Data" type="Action">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Sets the data on the specified item to the given value. 
+The collection must contain one row exactly, and the key field, if present, must match the key field of the item being updated.
+Also, the item must currently be locked by the current session - ie. it must have been retrieved using the 'Get Next' action.</narrative>
+    <display x="15" y="390" />
+    <inputs>
+      <input type="collection" name="Data" friendlyname="Data" narrative="A collection with one row containing the data to be set on the item. If the item has a key value and this collection has a key value, they should match exactly." expr="[col_itemData]" />
+      <input type="text" name="Item ID" friendlyname="Item ID" narrative="The ID of the work item to set the data on. This item should be locked by the calling session." expr="[txt_itemID]" />
+    </inputs>
+    <onsuccess>ad5e4285-1942-47b0-b0d1-dd63ce18f631</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Set Data" />
+  </stage>
+  <stage stageid="16aea734-d4ef-4a0a-86f9-99bbc59142d7" name="Completar coll_Exception" type="MultipleCalculation">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="405" />
+    <onsuccess>a3971b06-566c-4bcb-abf8-cf8fb7eeaeab</onsuccess>
+    <steps>
+      <calculation expression="[coll_ExceptionFromQueue.Name]" stage="coll_Exception.Nombre" />
+      <calculation expression="&quot;No se pudo modificar el nombre de la factura&quot;" stage="coll_Exception.Observaciones" />
+      <calculation expression="&quot;ERROR&quot;" stage="coll_Exception.Estado" />
+    </steps>
+  </stage>
+  <stage stageid="1708851a-9e99-4c15-a6e1-506f3ca2010a" name="txt_outEmailBody" type="Data">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="315" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f0b23ff6-ebfc-4518-a45a-7255bdd79732" name="txt_MailStart" type="Data">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="435" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="30b9594b-53ea-4235-97c1-bbe0cb745360" name="coll_ExceptionFromQueue" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="315" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="82ec1d9d-3617-4675-981b-f81e745a894b" name="Var Locales" type="Block">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="210" y="-105" w="390" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="3b269a4f-4607-4bb3-b2a7-5bf789066367" name="Send Email" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="300" y="-210" />
+    <inputs>
+      <input type="text" name="To:" friendlyname="To:" expr="[mailTeam]" />
+      <input type="text" name="Subject" friendlyname="Subject" expr="&quot;[ERROR] CONT_RenombrarArchivosRetenciones&quot;" />
+      <input type="text" name="Body" friendlyname="Body" expr="&quot;El proceso no pudo correr debido a : &quot;&amp;[txt_exceptionDetail]" />
+      <input type="collection" name="Attachments" friendlyname="Attachments" expr="" />
+      <input type="flag" name="Body is HTML" friendlyname="Body is HTML" expr="True" />
+    </inputs>
+    <onsuccess>0c04db82-4128-4edf-a1e0-7a534607e546</onsuccess>
+    <breakpoint type="0">
+      <condition>
+      </condition>
+    </breakpoint>
+    <resource object="Utilidad - Mails" action="Send Email" />
+  </stage>
+  <stage stageid="4076428d-0bf1-4322-a544-43e35357b773" name="Variables locales" type="Block">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="75" y="-60" w="480" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="826d16df-ae88-4d38-95dd-638d959fd83d" name="Variables locales" type="Block">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="60" y="-105" w="210" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="314f0d15-f8f4-4e46-bfcd-18802da15a25" name="Anchor17" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="75" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+    <onsuccess>c3daee65-dd8c-48af-a74a-ab6313fa17c0</onsuccess>
+  </stage>
+  <stage stageid="05c09578-ea33-4fda-b1ce-c849992b50af" name="Anchor18" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="75" y="285" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+    <onsuccess>e6f5278f-1201-4ed9-9855-013820551ac9</onsuccess>
+  </stage>
+  <stage stageid="e6f5278f-1201-4ed9-9855-013820551ac9" name="Anchor19" type="Anchor">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="285" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+    <onsuccess>293f7bf2-aa3c-434b-8d0e-658051bfca58</onsuccess>
+  </stage>
+  <stage stageid="36d873a1-4c80-4aad-9f84-73c207dade72" name="mailTeam" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-435" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="637b5902-cb20-43ea-8a9e-9fa0f7ef32f1" name="coll_Exception" type="Collection">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="495" y="-30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Nombre" type="text" />
+      <field name="Estado" type="text" />
+      <field name="Observaciones" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="4ccaefbb-d5d3-4afe-a57d-3f04f5464b28" name="Generar cuerpo de reporte" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="345" y="585" />
+    <inputs>
+      <input type="collection" name="Cuerpo" friendlyname="Cuerpo" expr="[coll_Exception]" />
+      <input type="flag" name="Error" friendlyname="Error" expr="True" />
+    </inputs>
+    <outputs>
+      <output type="text" name="outEmailBody" friendlyname="outEmailBody" stage="txt_outEmailBodyError" />
+    </outputs>
+    <onsuccess>3be1de54-f2d3-4b4a-bbbd-02b1e9e4892f</onsuccess>
+    <resource object="Generar Reporte HTML" action="Generar cuerpo de reporte" />
+  </stage>
+  <stage stageid="02d4f8d6-e12a-4c9b-b302-67fd1b39d98f" name="Hay Excepciones?" type="Decision">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="240" y="585" />
+    <decision expression="[num_CountException]&gt;0" />
+    <ontrue>4ccaefbb-d5d3-4afe-a57d-3f04f5464b28</ontrue>
+    <onfalse>6064c786-06d0-43de-b94b-ff91c26ac7cf</onfalse>
+  </stage>
+  <stage stageid="dfb1639c-bfa0-4301-b252-cccda95a43b8" name="Collections::Count Rows" type="Action">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="540" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;coll_Exception&quot;" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Count" friendlyname="Count" narrative="The number of rows counted in the collection" stage="num_CountException" />
+    </outputs>
+    <onsuccess>02d4f8d6-e12a-4c9b-b302-67fd1b39d98f</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Count Rows" />
+  </stage>
+  <stage stageid="1d52928e-91fe-42f3-9a38-996f9ae60e2e" name="num_CountException" type="Data">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="495" y="-75" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3be1de54-f2d3-4b4a-bbbd-02b1e9e4892f" name="Calcular outEmailBody" type="Calculation">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="345" y="645" />
+    <onsuccess>6064c786-06d0-43de-b94b-ff91c26ac7cf</onsuccess>
+    <calculation expression="[txt_outEmailBody]&amp;&quot;&#xA;&#xA;&#xA;&quot;&amp;[txt_outEmailBodyError]" stage="txt_outEmailBody" />
+  </stage>
+  <stage stageid="88f3e111-64f2-408f-a485-ee552b08facf" name="txt_outEmailBodyError" type="Data">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <display x="555" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6b9c07bf-fe43-4777-9b9f-03727c2b138c" name="Nota1" type="Note">
+    <subsheetid>6ba3a62d-e683-4fc9-80c2-95ace9ed6d67</subsheetid>
+    <narrative>No activado Errors Only
+</narrative>
+    <display x="90" y="120" w="210" h="300" />
+  </stage>
+  <stage stageid="bb509397-50d9-446f-ab7f-a4ced06ce365" name="Nota2" type="Note">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <narrative>No pone la coleccion
+</narrative>
+    <display x="105" y="255" w="360" h="270" />
+  </stage>
+  <stage stageid="35a1bfa0-c12d-4364-b814-018743494c72" name="Nota2" type="Note">
+    <subsheetid>8a991efe-db4c-4978-bcee-6c7a99fd7101</subsheetid>
+    <narrative>No pone la coleccion
+</narrative>
+    <display x="330" y="540" w="270" h="60" />
+  </stage>
+  <stage stageid="96066ddb-8173-4b45-bca2-46be9dc74e62" name="Nota3" type="Note">
+    <subsheetid>47e58161-0f42-47cc-aa94-af755a8de010</subsheetid>
+    <narrative>No pone los path</narrative>
+    <display x="-135" y="255" w="210" h="60" />
+  </stage>
+  <stage stageid="34668922-b454-4fc4-aafa-262c804f932e" name="Es el primer período?" type="Decision">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <display x="15" y="120" />
+    <decision expression="FormatDate([dte_fechaDelDia], &quot;dd&quot;)=&quot;16&quot;" />
+    <ontrue>04dbbf01-4183-49de-8c8b-0d831a17e211</ontrue>
+    <onfalse>1520684c-9bba-4d31-8087-21decd866631</onfalse>
+  </stage>
+  <stage stageid="1520684c-9bba-4d31-8087-21decd866631" name="Esta dentro del período?" type="Decision">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="120" y="120" />
+    <decision expression="ToNumber([coll_DatosMaestros.FechaCorrida2])&gt;=ToNumber(FormatDate([coll_files.Created], &quot;dd&quot;)) AND ToNumber(FormatDate([coll_files.Created], &quot;MM&quot;))= ToNumber(FormatDate([dte_fechaDelDia], &quot;MM&quot;)) AND ToNumber([coll_DatosMaestros.FechaCorrida])&lt;ToNumber(FormatDate([coll_files.Created], &quot;dd&quot;))" />
+    <ontrue>6820febd-a3a3-4ac2-b2ed-8bb50b4bd4c4</ontrue>
+    <onfalse>1ef0eec4-2526-4e56-97ff-70bcf599ac9b</onfalse>
+  </stage>
+  <stage stageid="6820febd-a3a3-4ac2-b2ed-8bb50b4bd4c4" name="Anchor20" type="Anchor">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="120" y="210" w="10" h="10" />
+    <onsuccess>f76ec377-50a2-49e2-b4e7-8bb160ca2a98</onsuccess>
+  </stage>
+  <stage stageid="1ef0eec4-2526-4e56-97ff-70bcf599ac9b" name="Anchor21" type="Anchor">
+    <subsheetid>b749d60a-bded-4d36-b099-3627ed699606</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="210" y="120" w="10" h="10" />
+    <onsuccess>3e807810-310a-4724-ab71-882b04f3acdd</onsuccess>
+  </stage>
+</process>
